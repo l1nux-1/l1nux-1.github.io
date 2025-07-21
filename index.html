@@ -1,1 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hi, I'm Atakan 😊😎👾</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background-color: black;
+      color: #9b59b6;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    #cv {
+      position: relative;
+      z-index: 2;
+      background: rgba(30, 30, 30, 0.85);
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 320px;
+      margin: 40px;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .links a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #9b59b6;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.2s ease;
+    }
+    .links a:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    .links img.icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
 
+    /* Yeni Bölüm: İçerik Alanı */
+    .content-section {
+      background-color: black;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+      padding: 60px 30px;
+      gap: 20px;
+      border-top: 5px solid #9b59b6;
+    }
+
+    .column {
+      flex: 1;
+      padding: 20px;
+      background: rgba(40, 40, 40, 0.9);
+      border-radius: 10px;
+      color: #ecf0f1;
+      min-height: 400px;
+    }
+
+    .column h3 {
+      border-bottom: 2px solid #9b59b6;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- ÜST GALAKSİ VE CV KUTUSU -->
+  <canvas id="galaxy"></canvas>
+  <div id="cv">
+    <h2>Hi, I'm Atakan 👾</h2>
+    <h3>Cyber Security Analyst & Certified Ethical Hacker</h3>
+    <p>Welcome to my professional portfolio. Here you can find an overview of my skills, experiences, and projects.</p>
+
+    <div class="links" aria-label="Social media links">
+      <a href="https://github.com/l1nux-1" target="_blank">
+        <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Logo" />
+        GitHub: l1nux-1
+      </a>
+      <a href="https://tryhackme.com/p/l1nux" target="_blank">
+        <img class="icon" src="https://tryhackme.com/favicon.ico" alt="TryHackMe Logo" />
+        TryHackMe: l1nux
+      </a>
+      <a href="https://www.linkedin.com/in/atakan-b-404108315/" target="_blank">
+        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Logo" />
+        LinkedIn: Atakan
+      </a>
+      <a href="https://medium.com/@atakan.bitim" target="_blank">
+        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/5968/5968906.png" alt="Medium Logo" />
+        Medium: Atakan Bitim
+      </a>
+    </div>
+  </div>
+
+  <!-- ALT BÖLÜM: 3 KOLONLU İÇERİK -->
+  <div class="content-section">
+    <div class="column">
+      <h3>Sertifikalar</h3>
+      <ul>
+        <li>Certified Ethical Hacker (CEH)<br>- Üçüncü Binyıl Akademi -
+        </li>
+        <li>
+          <a href="https://tryhackme.com/certificate/THM-KEQERCGSWF" target="_blank">CompTIA Pentest+ Certificate</a>
+        </li>
+        <li>
+          <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-KGZQNYSZOP.pdf" target="_blank">Jr Penetration Tester Certificate</a>
+        </li>
+        <li>
+          <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-E5S2DHNRGR.pdf" target="_blank">Web Fundamentals Certificate</a>
+        </li>
+        <li>
+          <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-TBCL7VIXIH.pdf" target="_blank">Introduction to Cyber Security</a>
+        </li>
+        <li>
+          <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-UXOHJJQDH7.pdf" target="_blank">Pre Security Certificate</a>
+        </li>
+        <li>
+          <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-OXQRBVCGGF.pdf" target="_blank">Complete Beginner Certificate</a>
+        </li>
+        <li>Duolingo English Test<br>- Upper Intermediate -</li>
+        <!-- Daha fazlası buraya -->
+      </ul>
+    </div>
+    <div class="column">
+      <h3>Skiller</h3>
+      <ul>
+        <li>C++, Python, Java</li>
+        <li>Html, CSS, Java Script </li>
+        <li>Assembly, SQL, PHP</li>
+        <li>Cyber Security</li>
+        <li>Nmap, WireShark, Metasploit</li>
+        <li>Burp Suite, maltego</li>
+        <li>john, Hydra</li>
+        <li>air crack-ng</li>
+        <li>Cico Packet Tracer</li>
+        <li>Kali Linux</li>
+        <li>Ubuntu</li>
+        <li>Windows</li>
+        <li>Mac OS</li>
+        <li>Vulnerability Scanning</li>
+        <li>Vulnerability Research</li>
+        <li>Penetration Testing</li>
+        <li>bash, shell </li>
+        <li>Cmd, Powershell</li>
+        <li>Practical in CLI tools like Netcat</li>
+        <li>Linux file system, network configuration<br>and basic exploit operations</li>
+        <li>Caesar Cipher (Şifreleme)</li>
+        <li>Hill Cipher (Şifreleme)</li>
+        <li>Vigenère Cipher (Şifreleme)</li>
+        <li>Playfair Cipher (Şifreleme)</li>
+        <li>Simetrik Cipher (Şifreleme)</li>
+        <li>Md5, Base64, SHA-256</li>
+        <li>SHA-512, Aes-128, Aes-256</li>
+        
+
+        <!-- Devam edebilirsin -->
+      </ul>
+    </div>
+    <div class="column">
+      <h3>Projeler & Etkinlikler</h3>
+      <ul>
+        <li> 📁 1. Project: Voice Command + Encryption Application
+🧠 What Is It Doing?<br><br>
+Receives user's voice from microphone,<br>
+Speech Recognition converts voice into text.<br> 
+Then the word the user says<br>
+Base64 encode, hash with Sha256 or MD5.<br>
+Thanks to this program, data can be quickly encrypted with just a voice command.
+<br><br>
+</li>
+<li>
+  📁 2. Project: Offline Hash Cracking Tool🧠 What Is It doing ? <br><br>
+1. The user enters the hash he/she wants to crack.<br> <br>
+2. The program will list each word in a locally stored wordlist (e.g. rockyou.txt) in order:<br>
+Base64 encodes or<br>
+Hashes with MD5 / SHA-1 / SHA-256.<br><br>
+3. It compares the obtained hash with the hash provided by the user.<br><br>
+4. When a match is found, the original password is printed.
+<br><br>
+</li>
+        <li>ArchX Güvenlik Yapılandırması</li>
+        <li>Web Uygulama Pentest Raporu</li>
+        <!-- Devamı sana kalmış -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- JS dosyası -->
+  <script>
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+// Işıklar
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+scene.add(ambientLight);
+
+const sunLight = new THREE.PointLight(0xffffff, 3, 100);
+sunLight.position.set(0, 0, 0);
+scene.add(sunLight);
+
+// Texture loader
+const loader = new THREE.TextureLoader();
+
+// Arka plan - yıldızlar
+loader.load('textures/stars.jpg', function(texture){
+  scene.background = texture;
+});
+
+// Güneş
+const sunGeo = new THREE.SphereGeometry(4.5, 64, 64); // 3 * 1.5 = 4.5
+
+const sunTexture = loader.load(
+  'textures/sun.jpg',
+  () => console.log("Güneş texture yüklendi."),
+  undefined,
+  (err) => console.error("Güneş texture yüklenemedi:", err)
+);
+
+const sunMat = new THREE.MeshStandardMaterial({
+  map: sunTexture,
+  emissive: new THREE.Color(0xffff00),
+  emissiveIntensity: 0.2,
+  roughness: 0.5,
+  metalness: 0.1,
+});
+
+const sun = new THREE.Mesh(sunGeo, sunMat);
+scene.add(sun);
+
+// Gezegen oluşturma fonksiyonu
+function createPlanet(texturePath, size, distance, speed) {
+  const geometry = new THREE.SphereGeometry(size, 32, 32);
+  const texture = loader.load(texturePath);
+  const material = new THREE.MeshStandardMaterial({ 
+    map: texture,
+    roughness: 0.7,
+    metalness: 0.3,
+  });
+  const mesh = new THREE.Mesh(geometry, material);
+  mesh.userData = { distance, speed, angle: Math.random() * Math.PI * 2 };
+  scene.add(mesh);
+  return mesh;
+}
+
+// Gezegenler (0.5x hız, 1.5x mesafe)
+const planets = [
+  createPlanet('textures/mercury.jpg', 0.4, 5 * 1.5, 0.02 * 0.5),
+  createPlanet('textures/venus.jpg', 0.9, 7 * 1.5, 0.015 * 0.5),
+  createPlanet('textures/earth.jpg', 1.1, 9 * 1.5, 0.01 * 0.5),
+  createPlanet('textures/mars.jpg', 0.8, 11 * 1.5, 0.008 * 0.5),
+  createPlanet('textures/jupiter.jpg', 2.0, 14 * 1.5, 0.005 * 0.5),
+  createPlanet('textures/saturn.jpg', 1.8, 17 * 1.5, 0.004 * 0.5),
+  createPlanet('textures/uranus.jpg', 1.2, 20 * 1.5, 0.003 * 0.5),
+  createPlanet('textures/neptune.jpg', 1.2, 23 * 1.5, 0.002 * 0.5),
+];
+
+// Satürn halkası
+const ringGeo = new THREE.RingGeometry(2.2, 3.2, 64);
+const ringTexture = loader.load('textures/saturn_ring.png');
+const ringMat = new THREE.MeshBasicMaterial({
+  map: ringTexture,
+  side: THREE.DoubleSide,
+  transparent: true,
+});
+const saturnRing = new THREE.Mesh(ringGeo, ringMat);
+const saturn = planets[5];
+saturn.add(saturnRing);
+saturnRing.rotation.x = Math.PI / 2;
+
+// Kamera ayarı
+camera.position.set(0, 5, 50);
+camera.lookAt(0, 0, 0);
+
+// Animasyon döngüsü
+function animate() {
+  requestAnimationFrame(animate);
+
+  // Gezegen hareketi
+  planets.forEach(planet => {
+    planet.userData.angle += planet.userData.speed;
+    planet.position.set(
+      Math.cos(planet.userData.angle) * planet.userData.distance,
+      0,
+      Math.sin(planet.userData.angle) * planet.userData.distance
+    );
+    planet.rotation.y += 0.01;
+  });
+
+  // Güneş dönüyor
+  sun.rotation.y += 0.001;
+
+  renderer.render(scene, camera);
+}
+
+animate();
+
+    
+  </script>
+</body>
+</html>
