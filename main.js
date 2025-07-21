@@ -65,4 +65,47 @@ const planets = [
   createPlanet('textures/earth.jpg', 1.1, 9 * 1.5, 0.01 * 0.5),
   createPlanet('textures/mars.jpg', 0.8, 11 * 1.5, 0.008 * 0.5),
   createPlanet('textures/jupiter.jpg', 2.0, 14 * 1.5, 0.005 * 0.5),
-  createPlanet('
+  createPlanet('textures/saturn.jpg', 1.8, 17 * 1.5, 0.004 * 0.5),
+  createPlanet('textures/uranus.jpg', 1.2, 20 * 1.5, 0.003 * 0.5),
+  createPlanet('textures/neptune.jpg', 1.2, 23 * 1.5, 0.002 * 0.5),
+];
+
+// Satürn halkası
+const ringGeo = new THREE.RingGeometry(2.2, 3.2, 64);
+const ringTexture = loader.load('textures/saturn_ring.png');
+const ringMat = new THREE.MeshBasicMaterial({
+  map: ringTexture,
+  side: THREE.DoubleSide,
+  transparent: true,
+});
+const saturnRing = new THREE.Mesh(ringGeo, ringMat);
+const saturn = planets[5];
+saturn.add(saturnRing);
+saturnRing.rotation.x = Math.PI / 2;
+
+// Kamera ayarı - yukarıda ve merkeze bakıyor
+camera.position.set(0, 20, 55);
+camera.lookAt(0, 0, 0);
+
+// Animasyon döngüsü
+function animate() {
+  requestAnimationFrame(animate);
+
+  // Gezegen hareketi
+  planets.forEach(planet => {
+    planet.userData.angle += planet.userData.speed;
+    planet.position.set(
+      Math.cos(planet.userData.angle) * planet.userData.distance,
+      3,  // Gezegenleri 3 birim yukarı taşıdık
+      Math.sin(planet.userData.angle) * planet.userData.distance
+    );
+    planet.rotation.y += 0.01;
+  });
+
+  // Güneş dönüyor
+  sun.rotation.y += 0.001;
+
+  renderer.render(scene, camera);
+}
+
+animate();
