@@ -10,6 +10,8 @@ document.body.appendChild(renderer.domElement);
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
 scene.add(ambientLight);
 
+console.log("JS çalıştı dostum ✔️");
+
 const sunLight = new THREE.PointLight(0xffffff, 3, 100);
 sunLight.position.set(0, 0, 0);
 scene.add(sunLight);
