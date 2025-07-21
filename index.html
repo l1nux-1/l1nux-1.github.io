@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>l1nux-1 | Animated Solar System CV</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+  body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(ellipse at center, #000011 0%, #000000 80%);
+    overflow: hidden;
+    font-family: 'Orbitron', sans-serif;
+    color: #d1a9ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 40px 20px 80px 20px;
+    text-align: center;
+  }
+
+  h1 {
+    margin: 0 0 8px 0;
+    font-size: 3em;
+    font-weight: 700;
+    color: #bb88ff;
+  }
+  p.subtitle {
+    margin: 0 0 40px 0;
+    font-size: 1.2em;
+    color: #aa99cc;
+  }
+  h2 {
+    margin-bottom: 10px;
+    color: #bb88ff;
+  }
+  p.cv-description {
+    max-width: 600px;
+    font-style: italic;
+    color: #a299cc;
+    margin: 0 auto 40px auto;
+  }
+
+  /* Solar system container */
+  .solar-system {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto 60px auto;
+  }
+
+  /* The Sun */
+  .sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    margin: -40px 0 0 -40px;
+    background: radial-gradient(circle, #ffdd33 0%, #ffbb00 70%, #aa7700 100%);
+    border-radius: 50%;
+    box-shadow:
+      0 0 30px 15px rgba(255, 221, 51, 0.6),
+      0 0 60px 40px rgba(255, 221, 51, 0.3);
+    filter: drop-shadow(0 0 10px #ffd700);
+    z-index: 10;
+  }
+
+  /* Orbit base */
+  .orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(209, 169, 255, 0.3);
+    border-radius: 50%;
+    transform-style: preserve-3d;
+  }
+
+  /* Animations for orbits */
+  @keyframes spin-clockwise {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  @keyframes spin-counterclockwise {
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  /* Each orbit's size and speed */
+  .orbit.mercury {
+    width: 100px;
+    height: 100px;
+    margin: -50px 0 0 -50px;
+    animation: spin-clockwise 6s linear infinite;
+  }
+  .orbit.venus {
+    width: 140px;
+    height: 140px;
+    margin: -70px 0 0 -70px;
+    animation: spin-counterclockwise 10s linear infinite;
+  }
+  .orbit.earth {
+    width: 180px;
+    height: 180px;
+    margin: -90px 0 0 -90px;
+    animation: spin-clockwise 16s linear infinite;
+  }
+  .orbit.mars {
+    width: 220px;
+    height: 220px;
+    margin: -110px 0 0 -110px;
+    animation: spin-counterclockwise 26s linear infinite;
+  }
+
+  /* Planets */
+  .planet {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow: 0 0 8px 2px rgba(209, 169, 255, 0.8);
+  }
+  .planet.mercury {
+    width: 10px;
+    height: 10px;
+    background: #a6a6a6;
+  }
+  .planet.venus {
+    width: 16px;
+    height: 16px;
+    background: #e5c07b;
+  }
+  .planet.earth {
+    width: 18px;
+    height: 18px;
+    background: #4a90e2;
+    box-shadow:
+      0 0 15px 3px #4a90e2;
+  }
+  .planet.mars {
+    width: 14px;
+    height: 14px;
+    background: #d14b4b;
+  }
+
+  /* Social links */
+  .links {
+    display: inline-block;
+    text-align: left;
+    font-size: 1.3em;
+  }
+  .links a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #d1a9ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .links a:hover {
+    color: #ffffff;
+  }
+  .icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+  }
+</style>
+</head>
+<body>
+  <h1>Hi, I'm l1nux-1 👾</h1>
+  <p class="subtitle">Cyber Security Student | Hacker in Progress</p>
+
+  <h2>My CV</h2>
+  <p class="cv-description">
+    Welcome to my professional portfolio. Here you can find an overview of my skills, experiences, and projects.<br />
+    Below are my social media accounts where I share my work, insights, and continue to grow as a cybersecurity enthusiast.
+  </p>
+
+  <div class="solar-system" aria-label="Animated Solar System">
+    <div class="sun" role="img" aria-label="Sun"></div>
+
+    <div class="orbit mercury" aria-label="Mercury orbit">
+      <div class="planet mercury" role="img" aria-label="Mercury"></div>
+    </div>
+
+    <div class="orbit venus" aria-label="Venus orbit">
+      <div class="planet venus" role="img" aria-label="Venus"></div>
+    </div>
+
+    <div class="orbit earth" aria-label="Earth orbit">
+      <div class="planet earth" role="img" aria-label="Earth"></div>
+    </div>
+
+    <div class="orbit mars" aria-label="Mars orbit">
+      <div class="planet mars" role="img" aria-label="Mars"></div>
+    </div>
+  </div>
+
+  <div class="links" aria-label="Social media links">
+    <a href="https://github.com/l1nux-1" target="_blank" rel="noopener noreferrer">
+      <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Logo" />
+      GitHub: l1nux-1
+    </a>
+    <a href="https://www.linkedin.com/in/atakan-b-404108315/" target="_blank" rel="noopener noreferrer">
+      <img class="icon" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Logo" />
+      LinkedIn: atakan
+    </a>
+    <a href="https://medium.com/@atakanbitim" target="_blank" rel="noopener noreferrer">
+      <img class="icon" src="https://cdn-icons-png.flaticon.com/512/5968/5968906.png" alt="Medium Logo" />
+      Medium: atakan bitim
+    </a>
+    <a href="https://tryhackme.com/p/l1nux" target="_blank" rel="noopener noreferrer">
+      <img class="icon" src="https://assets.tryhackme.com/img/favicon.ico" alt="TryHackMe Logo" />
+      TryHackMe: l1nux
+    </a>
+  </div>
+</body>
+</html>
