@@ -14,9 +14,11 @@
     }
     canvas {
       position: fixed;
-      top: 0;
+      top: 100px; /* Burayı 0'dan 100px yaptım */
       left: 0;
       z-index: -1;
+      width: 100%;
+      height: calc(100% - 100px);
     }
     #cv {
       position: relative;
@@ -176,8 +178,7 @@
       </ul>
     </div>
   </div>
-
-  <!-- JS dosyası -->
   <script type="module" src="main.js"></script>
 </body>
 </html>
+
