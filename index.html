@@ -22,10 +22,11 @@
       position: relative;
       z-index: 2;
       background: rgba(30, 30, 30, 0.85);
-      padding: 20px;
-      border-radius: 8px;
-      max-width: 320px;
-      margin: 40px;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 500px; /* Büyütüldü */
+      margin: 60px 40px;
+      font-size: 1.1em;
     }
     .links {
       display: flex;
@@ -52,7 +53,7 @@
       margin-right: 10px;
     }
 
-    /* Yeni Bölüm: İçerik Alanı */
+    /* İçerik Alanı */
     .content-section {
       background-color: black;
       min-height: 100vh;
@@ -60,7 +61,7 @@
       flex-direction: row;
       justify-content: space-around;
       align-items: flex-start;
-      padding: 60px 30px;
+      padding: 150px 30px 60px; /* Yukarıdan boşluk artırıldı */
       gap: 20px;
       border-top: 5px solid #9b59b6;
     }
@@ -114,28 +115,14 @@
     <div class="column">
       <h3>Sertifikalar</h3>
       <ul>
-        <li>Certified Ethical Hacker (CEH)<br>- Üçüncü Binyıl Akademi -
-        </li>
-        <li>
-          <a href="https://tryhackme.com/certificate/THM-KEQERCGSWF" target="_blank">CompTIA Pentest+ Certificate</a>
-        </li>
-        <li>
-          <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-KGZQNYSZOP.pdf" target="_blank">Jr Penetration Tester Certificate</a>
-        </li>
-        <li>
-          <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-E5S2DHNRGR.pdf" target="_blank">Web Fundamentals Certificate</a>
-        </li>
-        <li>
-          <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-TBCL7VIXIH.pdf" target="_blank">Introduction to Cyber Security</a>
-        </li>
-        <li>
-          <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-UXOHJJQDH7.pdf" target="_blank">Pre Security Certificate</a>
-        </li>
-        <li>
-          <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-OXQRBVCGGF.pdf" target="_blank">Complete Beginner Certificate</a>
-        </li>
+        <li>Certified Ethical Hacker (CEH)<br>- Üçüncü Binyıl Akademi -</li>
+        <li><a href="https://tryhackme.com/certificate/THM-KEQERCGSWF" target="_blank">CompTIA Pentest+ Certificate</a></li>
+        <li><a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-KGZQNYSZOP.pdf" target="_blank">Jr Penetration Tester Certificate</a></li>
+        <li><a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-E5S2DHNRGR.pdf" target="_blank">Web Fundamentals Certificate</a></li>
+        <li><a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-TBCL7VIXIH.pdf" target="_blank">Introduction to Cyber Security</a></li>
+        <li><a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-UXOHJJQDH7.pdf" target="_blank">Pre Security Certificate</a></li>
+        <li><a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-OXQRBVCGGF.pdf" target="_blank">Complete Beginner Certificate</a></li>
         <li>Duolingo English Test<br>- Upper Intermediate -</li>
-        <!-- Daha fazlası buraya -->
       </ul>
     </div>
     <div class="column">
@@ -167,44 +154,30 @@
         <li>Simetrik Cipher </li>
         <li>Md5, Base64, SHA-256</li>
         <li>SHA-512, Aes-128, Aes-256</li>
-        
-
-        <!-- Devam edebilirsin -->
       </ul>
     </div>
     <div class="column">
       <h3>Projeler & Etkinlikler</h3>
       <ul>
-        <li> 📁 1. Project: Voice Command + Encryption Application
-🧠 What Is It Doing?<br><br>
-Receives user's voice from microphone,<br>
-Speech Recognition converts voice into text.<br> 
-Then the word the user says<br>
-Base64 encode, hash with Sha256 or MD5.<br>
-Thanks to this program, data can be quickly encrypted with just a voice command.
-<br><br>
-</li>
-<li>
-  📁 2. Project: Offline Hash Cracking Tool🧠 What Is It doing ? <br><br>
-1. The user enters the hash he/she wants to crack.<br> <br>
-2. The program will list each word in a locally stored wordlist (e.g. rockyou.txt) in order:<br>
-Base64 encodes or<br>
-Hashes with MD5 / SHA-1 / SHA-256.<br><br>
-3. It compares the obtained hash with the hash provided by the user.<br><br>
-4. When a match is found, the original password is printed.
-<br><br>
-</li>
+        <li>📁 1. Project: Voice Command + Encryption Application<br><br>
+          Receives user's voice from microphone,<br>
+          Speech Recognition converts voice into text.<br> 
+          Then the word the user says<br>
+          Base64 encode, hash with Sha256 or MD5.<br><br>
+        </li>
+        <li>📁 2. Project: Offline Hash Cracking Tool<br><br>
+          1. The user enters the hash.<br>
+          2. Tries words from wordlist (rockyou.txt)<br>
+          3. Encodes/hashes, compares.<br>
+          4. If match found, shows password.<br><br>
+        </li>
         <li>ArchX Güvenlik Yapılandırması</li>
         <li>Web Uygulama Pentest Raporu</li>
-        <!-- Devamı sana kalmış -->
       </ul>
     </div>
   </div>
 
   <!-- JS dosyası -->
-<script type="module" src="main.js"></script>
-
-
-  
+  <script type="module" src="main.js"></script>
 </body>
 </html>
