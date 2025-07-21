@@ -83,9 +83,9 @@ const saturn = planets[5];
 saturn.add(saturnRing);
 saturnRing.rotation.x = Math.PI / 2;
 
-// 🔧 Kamera ayarı (Ortalanmış görünüm)
-camera.position.set(0, 0, 55); // Yukarıdan değil, tam hizalı bakıyor
-camera.lookAt(0, 0, 0);
+// Kamera ayarı - yukarı taşıdık ve bakış açısını yukarı kaydırdık
+camera.position.set(0, 8, 55);
+camera.lookAt(0, 3, 0);
 
 // Animasyon döngüsü
 function animate() {
