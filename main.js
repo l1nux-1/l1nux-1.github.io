@@ -23,7 +23,7 @@ loader.load('textures/stars.jpg', function(texture){
 });
 
 // Güneş
-const sunGeo = new THREE.SphereGeometry(4.5, 64, 64); // 3 * 1.5 = 4.5
+const sunGeo = new THREE.SphereGeometry(4.5, 64, 64);
 
 const sunTexture = loader.load(
   'textures/sun.jpg',
@@ -58,7 +58,7 @@ function createPlanet(texturePath, size, distance, speed) {
   return mesh;
 }
 
-// Gezegenler (0.5x hız, 1.5x mesafe)
+// Gezegenler
 const planets = [
   createPlanet('textures/mercury.jpg', 0.4, 5 * 1.5, 0.02 * 0.5),
   createPlanet('textures/venus.jpg', 0.9, 7 * 1.5, 0.015 * 0.5),
@@ -83,8 +83,8 @@ const saturn = planets[5];
 saturn.add(saturnRing);
 saturnRing.rotation.x = Math.PI / 2;
 
-// Kamera ayarı
-camera.position.set(0, 5, 50);
+// 🔧 Kamera ayarı (Ortalanmış görünüm)
+camera.position.set(0, 0, 55); // Yukarıdan değil, tam hizalı bakıyor
 camera.lookAt(0, 0, 0);
 
 // Animasyon döngüsü
