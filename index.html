@@ -3,203 +3,106 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>l1nux-1 | Animated Solar System CV</title>
+<title>l1nux-1 | 3D Solar System CV</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
   body {
-    margin: 0;
-    height: 100vh;
-    background: radial-gradient(ellipse at center, #000011 0%, #000000 80%);
-    overflow: hidden;
+    margin: 0; 
+    overflow: hidden; 
+    background: radial-gradient(ellipse at center, #000011 0%, #000000 100%);
     font-family: 'Orbitron', sans-serif;
     color: #d1a9ff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    padding: 40px 20px 80px 20px;
-    text-align: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
   }
 
-  h1 {
-    margin: 0 0 8px 0;
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  header h1 {
+    margin: 0;
     font-size: 3em;
-    font-weight: 700;
     color: #bb88ff;
   }
-  p.subtitle {
-    margin: 0 0 40px 0;
+
+  header p.subtitle {
+    margin: 5px 0 20px 0;
     font-size: 1.2em;
     color: #aa99cc;
   }
-  h2 {
-    margin-bottom: 10px;
-    color: #bb88ff;
+
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  p.cv-description {
+
+  #cv-description {
     max-width: 600px;
     font-style: italic;
     color: #a299cc;
-    margin: 0 auto 40px auto;
+    margin-bottom: 40px;
+    text-align: center;
+    line-height: 1.4;
   }
 
-  /* Solar system container */
-  .solar-system {
-    position: relative;
-    width: 400px;
+  #solar-system-container {
+    width: 100%;
     height: 400px;
-    margin: 0 auto 60px auto;
   }
 
-  /* The Sun */
-  .sun {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 80px;
-    height: 80px;
-    margin: -40px 0 0 -40px;
-    background: radial-gradient(circle, #ffdd33 0%, #ffbb00 70%, #aa7700 100%);
-    border-radius: 50%;
-    box-shadow:
-      0 0 30px 15px rgba(255, 221, 51, 0.6),
-      0 0 60px 40px rgba(255, 221, 51, 0.3);
-    filter: drop-shadow(0 0 10px #ffd700);
-    z-index: 10;
-  }
-
-  /* Orbit base */
-  .orbit {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    border: 1px solid rgba(209, 169, 255, 0.3);
-    border-radius: 50%;
-    transform-style: preserve-3d;
-  }
-
-  /* Animations for orbits */
-  @keyframes spin-clockwise {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  @keyframes spin-counterclockwise {
-    0% { transform: rotate(360deg); }
-    100% { transform: rotate(0deg); }
-  }
-
-  /* Each orbit's size and speed */
-  .orbit.mercury {
-    width: 100px;
-    height: 100px;
-    margin: -50px 0 0 -50px;
-    animation: spin-clockwise 6s linear infinite;
-  }
-  .orbit.venus {
-    width: 140px;
-    height: 140px;
-    margin: -70px 0 0 -70px;
-    animation: spin-counterclockwise 10s linear infinite;
-  }
-  .orbit.earth {
-    width: 180px;
-    height: 180px;
-    margin: -90px 0 0 -90px;
-    animation: spin-clockwise 16s linear infinite;
-  }
-  .orbit.mars {
-    width: 220px;
-    height: 220px;
-    margin: -110px 0 0 -110px;
-    animation: spin-counterclockwise 26s linear infinite;
-  }
-
-  /* Planets */
-  .planet {
-    position: absolute;
-    top: 50%;
-    left: 100%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    box-shadow: 0 0 8px 2px rgba(209, 169, 255, 0.8);
-  }
-  .planet.mercury {
-    width: 10px;
-    height: 10px;
-    background: #a6a6a6;
-  }
-  .planet.venus {
-    width: 16px;
-    height: 16px;
-    background: #e5c07b;
-  }
-  .planet.earth {
-    width: 18px;
-    height: 18px;
-    background: #4a90e2;
-    box-shadow:
-      0 0 15px 3px #4a90e2;
-  }
-  .planet.mars {
-    width: 14px;
-    height: 14px;
-    background: #d14b4b;
-  }
-
-  /* Social links */
+  /* Sosyal medya linkleri */
   .links {
-    display: inline-block;
-    text-align: left;
-    font-size: 1.3em;
+    margin-top: 40px;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
   }
+
   .links a {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    gap: 10px;
     color: #d1a9ff;
     text-decoration: none;
+    font-size: 1.2em;
     transition: color 0.3s ease;
   }
+
   .links a:hover {
     color: #ffffff;
   }
+
   .icon {
     width: 32px;
     height: 32px;
-    margin-right: 10px;
   }
 </style>
 </head>
 <body>
+<header>
   <h1>Hi, I'm l1nux-1 👾</h1>
   <p class="subtitle">Cyber Security Student | Hacker in Progress</p>
+</header>
 
-  <h2>My CV</h2>
-  <p class="cv-description">
+<main>
+  <p id="cv-description">
     Welcome to my professional portfolio. Here you can find an overview of my skills, experiences, and projects.<br />
     Below are my social media accounts where I share my work, insights, and continue to grow as a cybersecurity enthusiast.
   </p>
 
-  <div class="solar-system" aria-label="Animated Solar System">
-    <div class="sun" role="img" aria-label="Sun"></div>
-
-    <div class="orbit mercury" aria-label="Mercury orbit">
-      <div class="planet mercury" role="img" aria-label="Mercury"></div>
-    </div>
-
-    <div class="orbit venus" aria-label="Venus orbit">
-      <div class="planet venus" role="img" aria-label="Venus"></div>
-    </div>
-
-    <div class="orbit earth" aria-label="Earth orbit">
-      <div class="planet earth" role="img" aria-label="Earth"></div>
-    </div>
-
-    <div class="orbit mars" aria-label="Mars orbit">
-      <div class="planet mars" role="img" aria-label="Mars"></div>
-    </div>
-  </div>
+  <div id="solar-system-container"></div>
 
   <div class="links" aria-label="Social media links">
     <a href="https://github.com/l1nux-1" target="_blank" rel="noopener noreferrer">
@@ -210,14 +113,88 @@
       <img class="icon" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Logo" />
       LinkedIn: Atakan
     </a>
-    <a href="https://tryhackme.com/p/l1nux" target="_blank" rel="noopener noreferrer">
-      <img class="icon" src="https://tryhackme.com/favicon.ico" alt="TryHackMe Logo" />
-      TryHackMe: l1nux
-    </a>
     <a href="https://medium.com/@atakan.bitim" target="_blank" rel="noopener noreferrer">
       <img class="icon" src="https://cdn-icons-png.flaticon.com/512/5968/5968906.png" alt="Medium Logo" />
       Medium: Atakan Bitim
     </a>
+    <a href="https://tryhackme.com/p/l1nux" target="_blank" rel="noopener noreferrer">
+      <img class="icon" src="https://tryhackme.com/favicon.ico" alt="TryHackMe Logo" />
+      TryHackMe: l1nux
+    </a>
   </div>
+</main>
+
+<script src="js/three.min.js"></script>
+<script>
+  // Sahne, kamera, renderer
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 1000);
+  camera.position.set(0, 20, 50);
+
+  const renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+  renderer.setSize(window.innerWidth, 400);
+  document.getElementById('solar-system-container').appendChild(renderer.domElement);
+
+  // Güneş
+  const sunGeometry = new THREE.SphereGeometry(4, 32, 32);
+  const sunMaterial = new THREE.MeshBasicMaterial({ color: 0xFFDD33 });
+  const sun = new THREE.Mesh(sunGeometry, sunMaterial);
+  scene.add(sun);
+
+  // Işıklar
+  const ambientLight = new THREE.AmbientLight(0x333333);
+  scene.add(ambientLight);
+
+  const pointLight = new THREE.PointLight(0xFFDD33, 1.5, 100);
+  scene.add(pointLight);
+
+  // Gezegen verileri
+  const planetsData = [
+    { name: 'Mercury', color: 0x909090, size: 0.6, distance: 7, speed: 0.04 },
+    { name: 'Venus',   color: 0xE5C07B, size: 0.9, distance: 10, speed: 0.015 },
+    { name: 'Earth',   color: 0x4A90E2, size: 1, distance: 14, speed: 0.01 },
+    { name: 'Mars',    color: 0xD14B4B, size: 0.8, distance: 18, speed: 0.008 },
+  ];
+
+  // Gezegen meshleri
+  const planets = [];
+
+  planetsData.forEach(data => {
+    const geo = new THREE.SphereGeometry(data.size, 32, 32);
+    const mat = new THREE.MeshStandardMaterial({ color: data.color });
+    const mesh = new THREE.Mesh(geo, mat);
+    scene.add(mesh);
+    planets.push({ mesh, distance: data.distance, speed: data.speed, angle: Math.random()*Math.PI*2 });
+  });
+
+  // Animasyon döngüsü
+  function animate() {
+    requestAnimationFrame(animate);
+    pointLight.position.copy(sun.position);
+
+    planets.forEach(planet => {
+      planet.angle += planet.speed;
+      planet.mesh.position.set(
+        Math.cos(planet.angle) * planet.distance,
+        0,
+        Math.sin(planet.angle) * planet.distance
+      );
+    });
+
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  // Responsive
+  window.addEventListener('resize', () => {
+    const container = document.getElementById('solar-system-container');
+    const width = container.clientWidth;
+    const height = 400;
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+  });
+</script>
+  <script src="js/three.min.js"></script>
 </body>
 </html>
