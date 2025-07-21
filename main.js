@@ -84,7 +84,7 @@ saturn.add(saturnRing);
 saturnRing.rotation.x = Math.PI / 2;
 
 // Kamera ayarı - yukarıda ve merkeze bakıyor
-camera.position.set(0, -10, 50);
+camera.position.set(0, 5, 50);
 camera.lookAt(0, 0, 0);
 
 // Animasyon döngüsü
