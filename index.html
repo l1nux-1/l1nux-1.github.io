@@ -14,11 +14,9 @@
     }
     canvas {
       position: fixed;
-      top: 100px; /* Burayı 0'dan 100px yaptım */
+      top: 0;
       left: 0;
       z-index: -1;
-      width: 100%;
-      height: calc(100% - 100px);
     }
     #cv {
       position: relative;
@@ -113,7 +111,7 @@
   </div>
 
   <!-- ALT BÖLÜM: 3 KOLONLU İÇERİK -->
-  <div class="content-section">
+  <div class="content-section" style="padding-top: 80px;">
     <div class="column">
       <h3>Sertifikalar</h3>
       <ul>
@@ -178,7 +176,8 @@
       </ul>
     </div>
   </div>
+
+  <!-- JS dosyası -->
   <script type="module" src="main.js"></script>
 </body>
 </html>
-
