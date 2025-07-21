@@ -84,7 +84,7 @@ saturn.add(saturnRing);
 saturnRing.rotation.x = Math.PI / 2;
 
 // Kamera ayarı - yukarıda ve merkeze bakıyor
-camera.position.set(0, 10, 55);
+camera.position.set(0, 5, 50);
 camera.lookAt(0, 0, 0);
 
 // Animasyon döngüsü
@@ -96,14 +96,14 @@ function animate() {
     planet.userData.angle += planet.userData.speed;
     planet.position.set(
       Math.cos(planet.userData.angle) * planet.userData.distance,
-      7,  // Gezegenleri 3 birim yukarı taşıdık
+      0,  // Gezegenleri 3 birim yukarı taşıdık
       Math.sin(planet.userData.angle) * planet.userData.distance
     );
     planet.rotation.y += 0.01;
   });
 
   // Güneş dönüyor
-  sun.rotation.y += 0.001;
+  sun.rotation.y += 0.01;
 
   renderer.render(scene, camera);
 }
