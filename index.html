@@ -113,25 +113,25 @@
       <div class="menu-content">
         <h2>Menü</h2>
         <ul>
-          <li><a href="#certs">Sertifikalarım</a></li>
-          <li><a href="#skills">Skillerim</a></li>
-          <li><a href="#projects">Projelerim</a></li>
+          <li><a href="#certs">Certificates</a></li>
+          <li><a href="#skills">My Skills</a></li>
+          <li><a href="#projects">My Projects</a></li>
         </ul>
       </div>
     </div>
     <div class="content">
       <section id="certs">
-        <h2>Sertifikalarım</h2>
-        <p>Burada aldığım siber güvenlik, programlama ve diğer alanlardaki sertifikalar listelenecek.</p>
+        <h2>CERTIFICATES</h2>
+        <p>Certifications I have received in cybersecurity, ethical hacking, programming and other fields:</p>
 
         <div id="cert-list"></div>
       </section>
       <section id="skills">
-        <h2>Skillerim</h2>
+        <h2>My Skills</h2>
         <p>Programlama dilleri, güvenlik araçları, ağ bilgisi ve diğer yetenekler burada yer alacak.</p>
       </section>
       <section id="projects">
-        <h2>Projelerim</h2>
+        <h2>My Projects</h2>
         <p>Üzerinde çalıştığım ya da tamamladığım önemli projeler burada tanıtılacak.</p>
       </section>
     </div>
@@ -173,20 +173,20 @@
     // Sertifikalar dizisi: metin + opsiyonel link + renk
     const certs = [
       {text: "Certified Ethical Hacker (CEH)\n- Üçüncü Binyıl Akademi -", color:"#ff0000"},
-      {text: "CompTIA Pentest+ Certificate", url:"https://tryhackme.com/certificate/THM-KEQERCGSWF", color:"#00ffff"},
-      {text: "Ethical Hacking & Penetration Testing with Metasploit", url:"https://udemy-certificate.s3.amazonaws.com/pdf/UC-3a71926f-b09e-4b06-9104-7f431958b117.pdf", color:"#00ffff"},
-      {text: "Ethical Hacking: NMAP in depth", url:"https://www.udemy.com/certificate/UC-c059d2be-2ccb-43ff-942b-59a6808802d6", color:"#00ffff"},
-      {text: "Jr Penetration Tester Certificate", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-KGZQNYSZOP.pdf", color:"#00ffff"},
-      {text: "Ethical Hacking: Boot2Root CTF Certificate", url:"https://www.udemy.com/certificate/UC-440a427b-22e5-480d-b350-4b5906d2cd0d", color:"#00ffff"},
-      {text: "Introduction to Cyber Security", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-TBCL7VIXIH.pdf", color:"#00ffff"},
-      {text: "Android Ethical Hacking Certification from scratch to advanced", url:"https://udemy-certificate.s3.amazonaws.com/pdf/UC-271a2a02-9f55-4fdb-a97a-c957aed00f2d.pdf", color:"#00ffff"},
-      {text: "Certificate of Completion Advent of Cyber 2024", url:"https://tryhackme.com/certificate/THM-OGKGDPLABI", color:"#00ffff"},
-      {text: "KOSGEB Entrepreneurship Training Certificate", color:"#00ffff"},
-      {text: "Web Fundamentals Certificate", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-E5S2DHNRGR.pdf", color:"#00ffff"},
-      {text: "Pre Security Certificate", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-UXOHJJQDH7.pdf", color:"#00ffff"},
-      {text: "Complete Beginner Certificate", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-OXQRBVCGGF.pdf", color:"#00ffff"},
-      {text: "UDEMY C# Learning Certificate", url:"https://udemy-certificate.s3.amazonaws.com/pdf/UC-2965873f-f7bf-4a46-8984-774dcf27da90.pdf", color:"#00ffff"},
-      {text: "UDEMY C++| Object-Oriented Programming with Complete Implementation From Scratch", url:"https://udemy-certificate.s3.amazonaws.com/pdf/UC-6a4bb540-21ee-4c8b-9cd5-bc09271b6323.pdf", color:"#00ffff"},
+      {text: "CompTIA Pentest+ Certificate", url:"https://tryhackme.com/certificate/THM-KEQERCGSWF", color:"#0F0"},
+      {text: "Ethical Hacking & Penetration Testing with Metasploit", url:"https://udemy-certificate.s3.amazonaws.com/pdf/UC-3a71926f-b09e-4b06-9104-7f431958b117.pdf", color:"#0F0"},
+      {text: "Ethical Hacking: NMAP in depth", url:"https://www.udemy.com/certificate/UC-c059d2be-2ccb-43ff-942b-59a6808802d6", color:"#0F0"},
+      {text: "Jr Penetration Tester Certificate", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-KGZQNYSZOP.pdf", color:"#0F0"},
+      {text: "Ethical Hacking: Boot2Root CTF Certificate", url:"https://www.udemy.com/certificate/UC-440a427b-22e5-480d-b350-4b5906d2cd0d", color:"#0F0"},
+      {text: "Introduction to Cyber Security", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-TBCL7VIXIH.pdf", color:"#0F0"},
+      {text: "Android Ethical Hacking Certification from scratch to advanced", url:"https://udemy-certificate.s3.amazonaws.com/pdf/UC-271a2a02-9f55-4fdb-a97a-c957aed00f2d.pdf", color:"#0F0"},
+      {text: "Certificate of Completion Advent of Cyber 2024", url:"https://tryhackme.com/certificate/THM-OGKGDPLABI", color:"#0F0"},
+      {text: "KOSGEB Entrepreneurship Training Certificate", color:"#0F0"},
+      {text: "Web Fundamentals Certificate", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-E5S2DHNRGR.pdf", color:"#0F0"},
+      {text: "Pre Security Certificate", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-UXOHJJQDH7.pdf", color:"#0F0"},
+      {text: "Complete Beginner Certificate", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-OXQRBVCGGF.pdf", color:"#0F0"},
+      {text: "UDEMY C# Learning Certificate", url:"https://udemy-certificate.s3.amazonaws.com/pdf/UC-2965873f-f7bf-4a46-8984-774dcf27da90.pdf", color:"#0F0"},
+      {text: "UDEMY C++| Object-Oriented Programming with Complete Implementation From Scratch", url:"https://udemy-certificate.s3.amazonaws.com/pdf/UC-6a4bb540-21ee-4c8b-9cd5-bc09271b6323.pdf", color:"#0F0"},
       {text: "Duolingo English Test\n- Upper Intermediate -", color:"#0f0"}
     ];
 
