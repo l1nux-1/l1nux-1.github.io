@@ -1,199 +1,233 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Hi, I'm Atakan 😊😎👾</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matrix Menu Background</title>
   <style>
-    * { box-sizing: border-box; }
-    body {
+    html, body {
       margin: 0;
-      background-color: black;
-      color: #9b59b6;
-      font-family: Arial, sans-serif;
-      overflow-x: hidden;
+      padding: 0;
+      height: 100%;
+      background: #000;
+      font-family: monospace;
+      scroll-behavior: smooth;
     }
-    canvas {
-      position: fixed;
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+    .menu {
+      position: relative;
+      width: 250px;
+      background-color: rgba(20, 20, 20, 0.95);
+      color: white;
+      padding: 20px;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .menu canvas {
+      position: absolute;
       top: 0;
       left: 0;
-      z-index: -1;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
     }
-    #cv {
+    .menu-content {
       position: relative;
-      z-index: 2;
-      background: rgba(30, 30, 30, 0.85);
-      padding: 30px;
-      border-radius: 12px;
-      max-width: 500px; 
-      margin: 60px 40px;
-      font-size: 1.1em;
+      z-index: 1;
     }
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
+    .menu-content h2 {
+      margin-bottom: 20px;
     }
-    .links a {
-      display: flex;
-      align-items: center;
+    .menu-content ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .menu-content li {
+      margin-bottom: 10px;
+      background: black;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .menu-content li a {
+      color: #0f0;
       text-decoration: none;
-      color: #9b59b6;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 8px 12px;
-      border-radius: 6px;
-      transition: background 0.2s ease;
+      display: block;
     }
-    .links a:hover {
-      background: rgba(255, 255, 255, 0.15);
+    .menu-content li:hover {
+      background-color: #111;
     }
-    .links img.icon {
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-    }
-
-  
-    .content-section {
-      background-color: black;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: flex-start;
-      padding: 150px 30px 60px; 
-      gap: 20px;
-      border-top: 5px solid #9b59b6;
-    }
-
-    .column {
+    .content {
       flex: 1;
       padding: 20px;
-      background: rgba(40, 40, 40, 0.9);
+      color: white;
+      overflow-y: auto;
+      height: 100vh;
+    }
+    section {
+      margin-bottom: 60px;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px;
       border-radius: 10px;
-      color: #ecf0f1;
-      min-height: 400px;
+    }
+    section h2 {
+      color: #0f0;
     }
 
-    .column h3 {
-      border-bottom: 2px solid #9b59b6;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
+    /* Sertifika kutuları */
+    #cert-list {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cert-item {
+      background-color: black;
+      border: 1px solid #0f0;
+      color: #0f0;
+      padding: 12px 16px;
+      font-family: monospace;
+      border-radius: 6px;
+      min-width: 300px;
+      white-space: pre-wrap; /* satır sonlarını koru */
+    }
+
+    /* Linkler için özel renk ve stil */
+    .cert-link {
+      color: #00ffff;
+      text-decoration: none;
+    }
+
+    .cert-link:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-
-  <canvas id="galaxy"></canvas>
-  <div id="cv">
-    <h2>Hi, I'm Atakan 👾</h2>
-    <h3>Cyber Security Analyst & Certified Ethical Hacker</h3>
-    <p>Welcome to my professional portfolio. Here you can find an overview of my skills, experiences, and projects.</p>
-
-    <div class="links" aria-label="Social media links">
-      <a href="https://github.com/l1nux-1" target="_blank">
-        <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Logo" />
-        GitHub: l1nux-1
-      </a>
-      <a href="https://tryhackme.com/p/l1nux" target="_blank">
-        <img class="icon" src="https://tryhackme.com/favicon.ico" alt="TryHackMe Logo" />
-        TryHackMe: l1nux
-      </a>
-      <a href="https://www.linkedin.com/in/atakan-b-404108315/" target="_blank">
-        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Logo" />
-        LinkedIn: Atakan
-      </a>
-      <a href="https://medium.com/@atakan.bitim" target="_blank">
-        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/5968/5968906.png" alt="Medium Logo" />
-        Medium: Atakan Bitim
-      </a>
-     <a href="https://cv.ucuncubinyil.com/atakanburtecinbitim" target="_blank" style="display: flex; align-items: center;">
-         <img class="icon" src="https://www.ucuncubinyil.com/wp-content/uploads/2022/07/ucuncubinyil-logo.png" alt="Üçüncü Binyıl Akademi Logo" style="width: 20px; height: 20px; margin-right: 10px;" />
-        Cv: Ucuncu Binyıl
-</a>
-
-</a>      
+  <div class="container">
+    <div class="menu">
+      <canvas id="matrix"></canvas>
+      <div class="menu-content">
+        <h2>Menü</h2>
+        <ul>
+          <li><a href="#certs">Sertifikalarım</a></li>
+          <li><a href="#skills">Skillerim</a></li>
+          <li><a href="#projects">Projelerim</a></li>
+        </ul>
+      </div>
     </div>
+    <div class="content">
+      <section id="certs">
+        <h2>Sertifikalarım</h2>
+        <p>Burada aldığım siber güvenlik, programlama ve diğer alanlardaki sertifikalar listelenecek.</p>
 
-  </div>
-
-
-  <div class="content-section" style="padding-top: 120px;">
-    <div class="column">
-      <h3>Certificates</h3>
-      <ul>
-        <li style="color: red;">Certified Ethical Hacker (CEH)<br>- Üçüncü Binyıl Akademi -</li>
-        <li><a href="https://tryhackme.com/certificate/THM-KEQERCGSWF" target="_blank" style="color: #00ffff;">CompTIA Pentest+ Certificate</a></li>
-        <li><a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-3a71926f-b09e-4b06-9104-7f431958b117.pdf" target="_blank" style="color: #00ffff;">Ethical Hacking & Penetration Testing with Metasploit</a></li>
-        <li><a href="https://www.udemy.com/certificate/UC-c059d2be-2ccb-43ff-942b-59a6808802d6" target="_blank" style="color: #00ffff;">Ethical Hacking: NMAP in depth</a></li>
-        <li><a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-KGZQNYSZOP.pdf" target="_blank" style="color: #00ffff;">Jr Penetration Tester Certificate</a></li>
-        <li><a href="https://www.udemy.com/certificate/UC-440a427b-22e5-480d-b350-4b5906d2cd0d" target="_blank" style="color: #00ffff;">Ethical Hacking: Boot2Root CTF Certificate</a></li>
-        <li><a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-TBCL7VIXIH.pdf" target="_blank" style="color: #00ffff;">Introduction to Cyber Security</a></li>
-        <li><a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-271a2a02-9f55-4fdb-a97a-c957aed00f2d.pdf" target="_blank" style="color: #00ffff;">Android Ethical Hacking Certification from scratch to advanced</a></li>
-        <li><a href="https://tryhackme.com/certificate/THM-OGKGDPLABI" target="_blank" style="color: #00ffff;">Certificate of Completion Advent of Cyber 2024</a></li>
-        <li style="color: #00ffff;">KOSGEB Entrepreneurship Training Certificate</li>
-        <li><a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-E5S2DHNRGR.pdf" target="_blank" style="color: #00ffff;">Web Fundamentals Certificate</a></li>
-        <li><a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-UXOHJJQDH7.pdf" target="_blank" style="color: #00ffff;">Pre Security Certificate</a></li>
-        <li><a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-OXQRBVCGGF.pdf" target="_blank" style="color: #00ffff;">Complete Beginner Certificate</a></li>
-        <li><a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-2965873f-f7bf-4a46-8984-774dcf27da90.pdf" target="_blank" style="color: #00ffff;"> UDEMY C# Learning Certificate</a></li>
-        <li><a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-6a4bb540-21ee-4c8b-9cd5-bc09271b6323.pdf" target="_blank" style="color: #00ffff;"> UDEMY C++| Object-Oriented Programming with Complete Implementation From Scratch</a></li>
-        <li>Duolingo English Test<br>- Upper Intermediate -</li>
-      </ul>
-    </div>
-    <div class="column">
-      <h3>Skills</h3>
-      <ul>
-        <li>C++, Python, Java</li>
-        <li>Html, CSS, Java Script </li>
-        <li>Assembly, SQL, PHP, C#</li>
-        <li>Cyber Security</li>
-        <li>Nmap, WireShark, Metasploit</li>
-        <li>Burp Suite, maltego</li>
-        <li>john, Hydra</li>
-        <li>air crack-ng</li>
-        <li>Cico Packet Tracer</li>
-        <li>Kali Linux</li>
-        <li>Ubuntu</li>
-        <li>Windows</li>
-        <li>Mac OS</li>
-        <li>Vulnerability Scanning</li>
-        <li>Vulnerability Research</li>
-        <li>Penetration Testing</li>
-        <li>bash, shell </li>
-        <li>Cmd, Powershell</li>
-        <li>Practical in CLI tools like Netcat</li>
-        <li>Linux file system, network configuration<br>and basic exploit operations</li>
-        <li>Caesar Cipher </li>
-        <li>Hill Cipher </li>
-        <li>Vigenère Cipher </li>
-        <li>Simetrik Cipher </li>
-        <li>Md5, Base64, SHA-256</li>
-        <li>SHA-512, Aes-128, Aes-256</li>
-      </ul>
-    </div>
-    <div class="column">
-      <h3>Projects & Events</h3>
-      <ul>
-        <li>📁 1. Project: Voice Command + Encryption Application<br><br>
-          Receives user's voice from microphone,<br>
-          Speech Recognition converts voice into text.<br> 
-          Then the word the user says<br>
-          Base64 encode, hash with Sha256 or MD5.<br><br>
-          <a href="https://github.com/l1nux-1/VoiceCrypt" target="_blank">VoiceCrypt</a><br><br>
-        </li>
-        <li>📁 2. Project: Offline Hash Cracking Tool<br><br>
-          1. The user enters the hash.<br>
-          2. Tries words from wordlist (rockyou.txt)<br>
-          3. Encodes/hashes, compares.<br>
-          4. If match found, shows password.<br><br>
-        </li>
-        <li>ArchX Güvenlik Yapılandırması</li>
-        <li>Web Uygulama Pentest Raporu</li>
-      </ul>
+        <div id="cert-list"></div>
+      </section>
+      <section id="skills">
+        <h2>Skillerim</h2>
+        <p>Programlama dilleri, güvenlik araçları, ağ bilgisi ve diğer yetenekler burada yer alacak.</p>
+      </section>
+      <section id="projects">
+        <h2>Projelerim</h2>
+        <p>Üzerinde çalıştığım ya da tamamladığım önemli projeler burada tanıtılacak.</p>
+      </section>
     </div>
   </div>
 
-  
-  <script type="module" src="main.js"></script>
+  <script>
+    const canvas = document.getElementById("matrix");
+    const ctx = canvas.getContext("2d");
+
+    canvas.height = canvas.offsetHeight;
+    canvas.width = canvas.offsetWidth;
+
+    const letters = "01";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = new Array(Math.floor(columns)).fill(1);
+
+    function draw() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#0F0";
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 33);
+
+    // Sertifikalar dizisi: metin + opsiyonel link + renk
+    const certs = [
+      {text: "Certified Ethical Hacker (CEH)\n- Üçüncü Binyıl Akademi -", color:"#ff0000"},
+      {text: "CompTIA Pentest+ Certificate", url:"https://tryhackme.com/certificate/THM-KEQERCGSWF", color:"#00ffff"},
+      {text: "Ethical Hacking & Penetration Testing with Metasploit", url:"https://udemy-certificate.s3.amazonaws.com/pdf/UC-3a71926f-b09e-4b06-9104-7f431958b117.pdf", color:"#00ffff"},
+      {text: "Ethical Hacking: NMAP in depth", url:"https://www.udemy.com/certificate/UC-c059d2be-2ccb-43ff-942b-59a6808802d6", color:"#00ffff"},
+      {text: "Jr Penetration Tester Certificate", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-KGZQNYSZOP.pdf", color:"#00ffff"},
+      {text: "Ethical Hacking: Boot2Root CTF Certificate", url:"https://www.udemy.com/certificate/UC-440a427b-22e5-480d-b350-4b5906d2cd0d", color:"#00ffff"},
+      {text: "Introduction to Cyber Security", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-TBCL7VIXIH.pdf", color:"#00ffff"},
+      {text: "Android Ethical Hacking Certification from scratch to advanced", url:"https://udemy-certificate.s3.amazonaws.com/pdf/UC-271a2a02-9f55-4fdb-a97a-c957aed00f2d.pdf", color:"#00ffff"},
+      {text: "Certificate of Completion Advent of Cyber 2024", url:"https://tryhackme.com/certificate/THM-OGKGDPLABI", color:"#00ffff"},
+      {text: "KOSGEB Entrepreneurship Training Certificate", color:"#00ffff"},
+      {text: "Web Fundamentals Certificate", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-E5S2DHNRGR.pdf", color:"#00ffff"},
+      {text: "Pre Security Certificate", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-UXOHJJQDH7.pdf", color:"#00ffff"},
+      {text: "Complete Beginner Certificate", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-OXQRBVCGGF.pdf", color:"#00ffff"},
+      {text: "UDEMY C# Learning Certificate", url:"https://udemy-certificate.s3.amazonaws.com/pdf/UC-2965873f-f7bf-4a46-8984-774dcf27da90.pdf", color:"#00ffff"},
+      {text: "UDEMY C++| Object-Oriented Programming with Complete Implementation From Scratch", url:"https://udemy-certificate.s3.amazonaws.com/pdf/UC-6a4bb540-21ee-4c8b-9cd5-bc09271b6323.pdf", color:"#00ffff"},
+      {text: "Duolingo English Test\n- Upper Intermediate -", color:"#0f0"}
+    ];
+
+    const certList = document.getElementById("cert-list");
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function typeWriter(element, text, speed = 40) {
+      element.textContent = "";
+      for(let i = 0; i < text.length; i++) {
+        element.textContent += text.charAt(i);
+        await sleep(speed);
+      }
+    }
+
+    async function showCerts() {
+      for (const cert of certs) {
+        const div = document.createElement("div");
+        div.className = "cert-item";
+
+        if (cert.url) {
+          const a = document.createElement("a");
+          a.href = cert.url;
+          a.target = "_blank";
+          a.className = "cert-link";
+          a.style.color = cert.color || "#0f0";
+          div.appendChild(a);
+          certList.appendChild(div);
+          await typeWriter(a, cert.text, 40);
+        } else {
+          div.style.color = cert.color || "#0f0";
+          certList.appendChild(div);
+          await typeWriter(div, cert.text, 40);
+        }
+        await sleep(300);
+      }
+    }
+
+    showCerts();
+  </script>
 </body>
 </html>
