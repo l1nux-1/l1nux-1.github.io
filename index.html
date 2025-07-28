@@ -76,15 +76,15 @@
       color: #0f0;
     }
 
-    /* Sertifika kutuları */
-    #cert-list {
+    /* Genel kutu stili */
+    .item-list {
       margin-top: 20px;
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
 
-    .cert-item {
+    .item {
       background-color: black;
       border: 1px solid #0f0;
       color: #0f0;
@@ -92,16 +92,16 @@
       font-family: monospace;
       border-radius: 6px;
       min-width: 300px;
-      white-space: pre-wrap; /* satır sonlarını koru */
+      white-space: pre-wrap;
     }
 
     /* Linkler için özel renk ve stil */
-    .cert-link {
-      color: #00ffff;
+    .item-link {
+      color: #0f0;
       text-decoration: none;
     }
 
-    .cert-link:hover {
+    .item-link:hover {
       text-decoration: underline;
     }
   </style>
@@ -123,21 +123,23 @@
       <section id="certs">
         <h2>CERTIFICATES</h2>
         <p>Certifications I have received in cybersecurity, ethical hacking, programming and other fields:</p>
-
-        <div id="cert-list"></div>
+        <div id="cert-list" class="item-list"></div>
       </section>
       <section id="skills">
-        <h2>My Skills</h2>
-        <p>Programlama dilleri, güvenlik araçları, ağ bilgisi ve diğer yetenekler burada yer alacak.</p>
+        <h2>MY SKILLS</h2>
+        <p>It includes my skills in programming languages, security tools, network protocols, and other technical abilities focused on ethical hacking and cybersecurity.</p>
+        <div id="skill-list" class="item-list"></div>
       </section>
       <section id="projects">
-        <h2>My Projects</h2>
-        <p>Üzerinde çalıştığım ya da tamamladığım önemli projeler burada tanıtılacak.</p>
+        <h2>MY PROJECTS</h2>
+        <p>Important projects I am working on or have completed are showcased here.</p>
+        <div id="project-list" class="item-list"></div>
       </section>
     </div>
   </div>
 
   <script>
+    // Matrix arkaplan kodu
     const canvas = document.getElementById("matrix");
     const ctx = canvas.getContext("2d");
 
@@ -167,10 +169,22 @@
         drops[i]++;
       }
     }
-
     setInterval(draw, 33);
 
-    // Sertifikalar dizisi: metin + opsiyonel link + renk
+    // Yazma animasyonu fonksiyonu
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function typeWriter(element, text, speed = 40) {
+      element.textContent = "";
+      for(let i = 0; i < text.length; i++) {
+        element.textContent += text.charAt(i);
+        await sleep(speed);
+      }
+    }
+
+    // Veriler
     const certs = [
       {text: "Certified Ethical Hacker (CEH)\n- Üçüncü Binyıl Akademi -", color:"#ff0000"},
       {text: "CompTIA Pentest+ Certificate", url:"https://tryhackme.com/certificate/THM-KEQERCGSWF", color:"#0F0"},
@@ -190,44 +204,80 @@
       {text: "Duolingo English Test\n- Upper Intermediate -", color:"#0f0"}
     ];
 
+    const skills = [
+      {text: "C++, C#, Python", color:"#0F0"},
+      {text: "Java Script, Java", color:"#0F0"},
+      {text: "Html, CSS, SQL, PHP", color:"#0F0"},
+      {text: "Assembly", color:"#0F0"},
+      {text: "Cyber Security", color:"#0F0"},
+      {text: "Nmap, WireShark, Metasploit", color:"#0F0"},
+      {text: "Burp Suite, Maltego", color:"#0F0"},
+      {text: "John, Hydra", color:"#0F0"},
+      {text: "Air Crack-ng", color:"#0F0"},
+      {text: "Cisco Packet Tracer", color:"#0F0"},
+      {text: "Kali Linux", color:"#0F0"},
+      {text: "Ubuntu", color:"#0F0"},
+      {text: "Windows", color:"#0F0"},
+      {text: "Mac OS", color:"#0F0"},
+      {text: "Vulnerability Scanning", color:"#0F0"},
+      {text: "Vulnerability Research", color:"#0F0"},
+      {text: "Bug Hunting", color:"#0F0"},
+      {text: "Penetration Testing", color:"#0F0"},
+      {text: "Bash, shell", color:"#0F0"},
+      {text: "Cmd, Powershell", color:"#0F0"},
+      {text: "Pratical in CLI tools like Netcat", color:"#0F0"},
+      {text: "Linux file system", color:"#0F0"},
+      {text: "Network Configuration", color:"#0F0"},
+      {text: "Basic Exploit Operations", color:"#0F0"},
+      {text: "Ceasar Cipher, Hill Cipher", color:"#0F0"},
+      {text: "Vigenère Cipher, Symetric Cipher", color:"#0F0"},
+      {text: "Md5, Base-64, SHA-256", color:"#0F0"},
+      {text: "SHA-512, Aes-128, Aes-256", color:"#0F0"},
+    ];
+
+    const projects = [
+      {text: "", color:"#0F0"},
+      {text: "", color:"#0F0"},
+      {text: "", color:"#0F0"},
+      {text: "", color:"#0F0"},
+    ];
+
+    // Liste elementleri
     const certList = document.getElementById("cert-list");
+    const skillList = document.getElementById("skill-list");
+    const projectList = document.getElementById("project-list");
 
-    function sleep(ms) {
-      return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    async function typeWriter(element, text, speed = 40) {
-      element.textContent = "";
-      for(let i = 0; i < text.length; i++) {
-        element.textContent += text.charAt(i);
-        await sleep(speed);
-      }
-    }
-
-    async function showCerts() {
-      for (const cert of certs) {
+    async function showItems(list, container) {
+      for (const item of list) {
         const div = document.createElement("div");
-        div.className = "cert-item";
+        div.className = "item";
 
-        if (cert.url) {
+        if (item.url) {
           const a = document.createElement("a");
-          a.href = cert.url;
+          a.href = item.url;
           a.target = "_blank";
-          a.className = "cert-link";
-          a.style.color = cert.color || "#0f0";
+          a.className = "item-link";
+          a.style.color = item.color || "#0f0";
           div.appendChild(a);
-          certList.appendChild(div);
-          await typeWriter(a, cert.text, 40);
+          container.appendChild(div);
+          await typeWriter(a, item.text, 40);
         } else {
-          div.style.color = cert.color || "#0f0";
-          certList.appendChild(div);
-          await typeWriter(div, cert.text, 40);
+          div.style.color = item.color || "#0f0";
+          container.appendChild(div);
+          await typeWriter(div, item.text, 40);
         }
         await sleep(300);
       }
     }
 
-    showCerts();
+    // Başlat
+    async function init() {
+      await showItems(certs, certList);
+      await showItems(skills, skillList);
+      await showItems(projects, projectList);
+    }
+
+    init();
   </script>
 </body>
 </html>
