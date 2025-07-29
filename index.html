@@ -17,14 +17,37 @@
       display: flex;
       height: 100vh;
     }
+    /* Hamburger toggle butonu - HER ZAMAN görünür */
+    .menu-toggle {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      font-size: 28px;
+      background: transparent;
+      color: #0f0;
+      border: none;
+      cursor: pointer;
+      z-index: 20;
+      user-select: none;
+    }
+    /* Menü başlangıçta kapalı, ekran genişse gizli */
     .menu {
-      position: relative;
+      position: fixed;
+      top: 0;
+      left: -270px; /* ekran dışı */
+      height: 100vh;
       width: 250px;
       background-color: rgba(20, 20, 20, 0.95);
       color: white;
       padding: 20px;
-      z-index: 1;
+      z-index: 15;
       overflow: hidden;
+      transition: left 0.3s ease;
+      box-shadow: 2px 0 8px rgba(0,255,0,0.5);
+    }
+    /* Menü açıldığında */
+    .menu.active {
+      left: 0;
     }
     .menu canvas {
       position: absolute;
@@ -59,12 +82,18 @@
     .menu-content li:hover {
       background-color: #111;
     }
+    /* İçerik normalde tam genişlikte, menü açıkken sağa kayar */
     .content {
       flex: 1;
       padding: 20px;
       color: white;
       overflow-y: auto;
       height: 100vh;
+      transition: margin-left 0.3s ease;
+      margin-left: 0;
+    }
+    .content.menu-open {
+      margin-left: 250px;
     }
     section {
       margin-bottom: 60px;
@@ -104,22 +133,45 @@
     .item-link:hover {
       text-decoration: underline;
     }
+
+    /* Responsive için özel kurallar */
+    @media (max-width: 768px) {
+      /* Menü mobilde tam ekran, üstte boşluk toggle için */
+      .menu {
+        position: fixed;
+        top: 0;
+        left: -270px;
+        height: 100vh;
+        width: 250px;
+        padding-top: 60px;
+        box-shadow: 2px 0 8px rgba(0,255,0,0.5);
+      }
+      .menu.active {
+        left: 0;
+      }
+      .content.menu-open {
+        margin-left: 250px;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Hamburger butonu -->
+  <button class="menu-toggle" aria-label="Toggle Menu" onclick="toggleMenu()">☰</button>
+
   <div class="container">
-    <div class="menu">
+    <div class="menu" id="menu">
       <canvas id="matrix"></canvas>
       <div class="menu-content">
         <h2>Menü</h2>
         <ul>
-          <li><a href="#certs">Certificates</a></li>
-          <li><a href="#skills">My Skills</a></li>
-          <li><a href="#projects">My Projects</a></li>
+          <li><a href="#certs" onclick="closeMenu()">Certificates</a></li>
+          <li><a href="#skills" onclick="closeMenu()">My Skills</a></li>
+          <li><a href="#projects" onclick="closeMenu()">My Projects</a></li>
         </ul>
       </div>
     </div>
-    <div class="content">
+    <div class="content" id="content">
       <section id="certs">
         <h2>CERTIFICATES</h2>
         <p>Certifications I have received in cybersecurity, ethical hacking, programming and other fields:</p>
@@ -127,7 +179,7 @@
       </section>
       <section id="skills">
         <h2>MY SKILLS</h2>
-        <p>It includes my skills in programming languages, security tools, network protocols, and other technical abilities focused on ethical hacking and cybersecurity.</p>
+        <p>It includes my skills in programming languages, security tools, network protocols, and other technical abilities focused on ethical hacking and cybersecurity:</p>
         <div id="skill-list" class="item-list"></div>
       </section>
       <section id="projects">
@@ -184,7 +236,7 @@
       }
     }
 
-    // Veriler
+    // Veriler ve listeleme fonksiyonu
     const certs = [
       {text: "Certified Ethical Hacker (CEH)\n- Üçüncü Binyıl Akademi -", color:"#ff0000"},
       {text: "CompTIA Pentest+ Certificate", url:"https://tryhackme.com/certificate/THM-KEQERCGSWF", color:"#0F0"},
@@ -205,7 +257,7 @@
     ];
 
     const skills = [
-      {text: "C++, C#, Python", color:"#0F0"},
+      {text: "C++,C#, Python", color:"#0F0"},
       {text: "Java Script, Java", color:"#0F0"},
       {text: "Html, CSS, SQL, PHP", color:"#0F0"},
       {text: "Assembly", color:"#0F0"},
@@ -225,12 +277,12 @@
       {text: "Penetration Testing", color:"#0F0"},
       {text: "Bash, shell", color:"#0F0"},
       {text: "Cmd, Powershell", color:"#0F0"},
-      {text: "Pratical in CLI tools like Netcat", color:"#0F0"},
+      {text: "Practical in CLI tools like Netcat", color:"#0F0"},
       {text: "Linux file system", color:"#0F0"},
       {text: "Network Configuration", color:"#0F0"},
       {text: "Basic Exploit Operations", color:"#0F0"},
-      {text: "Ceasar Cipher, Hill Cipher", color:"#0F0"},
-      {text: "Vigenère Cipher, Symetric Cipher", color:"#0F0"},
+      {text: "Caesar Cipher, Hill Cipher", color:"#0F0"},
+      {text: "Vigenère Cipher, Symmetric Cipher", color:"#0F0"},
       {text: "Md5, Base-64, SHA-256", color:"#0F0"},
       {text: "SHA-512, Aes-128, Aes-256", color:"#0F0"},
     ];
@@ -278,7 +330,22 @@
     }
 
     init();
+
+    // Menü aç/kapat fonksiyonları
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      const content = document.getElementById("content");
+      menu.classList.toggle("active");
+      content.classList.toggle("menu-open");
+    }
+    function closeMenu() {
+      const menu = document.getElementById("menu");
+      const content = document.getElementById("content");
+      if(menu.classList.contains("active")){
+        menu.classList.remove("active");
+        content.classList.remove("menu-open");
+      }
+    }
   </script>
 </body>
 </html>
-
