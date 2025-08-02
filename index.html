@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Matrix Menu Background</title>
+  <title>Atakan Bitim</title>
   <style>
     html, body {
       margin: 0;
@@ -93,7 +93,7 @@
       margin-left: 0;
     }
     .content.menu-open {
-      margin-left: 250px;
+      margin-left: 270px; /* 250px + 20px boşluk */
     }
     section {
       margin-bottom: 60px;
@@ -150,7 +150,7 @@
         left: 0;
       }
       .content.menu-open {
-        margin-left: 250px;
+        margin-left: 270px;
       }
     }
   </style>
@@ -163,11 +163,38 @@
     <div class="menu" id="menu">
       <canvas id="matrix"></canvas>
       <div class="menu-content">
-        <h2>Menü</h2>
+        <h2 style="margin-top:50px;">Menu</h2>
         <ul>
           <li><a href="#certs" onclick="closeMenu()">Certificates</a></li>
           <li><a href="#skills" onclick="closeMenu()">My Skills</a></li>
           <li><a href="#projects" onclick="closeMenu()">My Projects</a></li>
+        </ul>
+        <h3 style="margin-top:30px; color:#0f0;">Social Media</h3>
+        <ul>
+          <li>
+            <a href="https://github.com/l1nux-1" target="_blank">
+              <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Logo" style="width:20px;vertical-align:middle;margin-right:8px;" />
+              GitHub: l1nux-1
+            </a>
+          </li>
+          <li>
+            <a href="https://tryhackme.com/p/l1nux" target="_blank">
+              <img class="icon" src="https://tryhackme.com/favicon.ico" alt="TryHackMe Logo" style="width:20px;vertical-align:middle;margin-right:8px;" />
+              TryHackMe: l1nux
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/atakan-b-404108315/" target="_blank">
+              <img class="icon" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Logo" style="width:20px;vertical-align:middle;margin-right:8px;" />
+              LinkedIn: Atakan
+            </a>
+          </li>
+          <li>
+            <a href="https://medium.com/@atakan.bitim" target="_blank">
+              <img class="icon" src="https://cdn-icons-png.flaticon.com/512/5968/5968906.png" alt="Medium Logo" style="width:20px;vertical-align:middle;margin-right:8px;" />
+              Medium: Atakan Bitim
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -247,6 +274,7 @@
       {text: "Introduction to Cyber Security", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-TBCL7VIXIH.pdf", color:"#0F0"},
       {text: "Android Ethical Hacking Certification from scratch to advanced", url:"https://udemy-certificate.s3.amazonaws.com/pdf/UC-271a2a02-9f55-4fdb-a97a-c957aed00f2d.pdf", color:"#0F0"},
       {text: "Certificate of Completion Advent of Cyber 2024", url:"https://tryhackme.com/certificate/THM-OGKGDPLABI", color:"#0F0"},
+      {text: "Certificate of Completion Advent of Cyber 2023", url:"https://tryhackme.com/certificate/THM-68FPQDIIYC", color:"#0F0"},
       {text: "KOSGEB Entrepreneurship Training Certificate", color:"#0F0"},
       {text: "Web Fundamentals Certificate", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-E5S2DHNRGR.pdf", color:"#0F0"},
       {text: "Pre Security Certificate", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-UXOHJJQDH7.pdf", color:"#0F0"},
@@ -257,7 +285,7 @@
     ];
 
     const skills = [
-      {text: "C++,C#, Python", color:"#0F0"},
+      {text: "C++,C#,Python", color:"#0F0"},
       {text: "Java Script, Java", color:"#0F0"},
       {text: "Html, CSS, SQL, PHP", color:"#0F0"},
       {text: "Assembly", color:"#0F0"},
@@ -288,8 +316,8 @@
     ];
 
     const projects = [
-      {text: "", color:"#0F0"},
-      {text: "", color:"#0F0"},
+      {text: "📁 1. Project: Voice Command + Encryption ApplicationReceives user's voice from microphone, Speech Recognition converts voice into text. Then the word the user says Base64 encode, hash with Sha256 or MD5. \n", url:"https://github.com/l1nux-1/VoiceCrypt", color:"#0F0"},
+      {text: "2. Project: Offline Hash Cracking Tool \n <-> The user enters the hash.\n <-> Tries words from wordlist (rockyou.txt)\n <-> Encodes/hashes, compares.\n <-> If match found, shows password.", color:"#0F0"},
       {text: "", color:"#0F0"},
       {text: "", color:"#0F0"},
     ];
