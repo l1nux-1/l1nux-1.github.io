@@ -165,9 +165,16 @@
       <div class="menu-content">
         <h2 style="margin-top:50px;">Menu</h2>
         <ul>
-          <li><a href="#certs" onclick="closeMenu()">Certificates</a></li>
-          <li><a href="#skills" onclick="closeMenu()">My Skills</a></li>
-          <li><a href="#projects" onclick="closeMenu()">My Projects</a></li>
+          <li><a href="#certs" onclick="showMainSections(); closeMenu()">Certificates</a></li>
+          <li><a href="#skills" onclick="showMainSections(); closeMenu()">My Skills</a></li>
+          <li><a href="#projects" onclick="showMainSections(); closeMenu()">My Projects</a></li>
+        </ul>
+        <!-- My Projects altına özel başlık ve kutucuk -->
+        <h3 style="color:#0f0; margin:20px 0 10px 0;">Medium - Tryhackme</h3>
+        <ul>
+          <li>
+            <a href="#" style="color:#0f0;" onclick="showPreSecurityWalkthroughs(); closeMenu();">Pre Security</a>
+          </li>
         </ul>
         <h3 style="margin-top:30px; color:#0f0;">Social Media</h3>
         <ul>
@@ -214,6 +221,18 @@
         <p>Important projects I am working on or have completed are showcased here.</p>
         <div id="project-list" class="item-list"></div>
       </section>
+      <!-- Pre Security Walkthroughs Section -->
+      <section id="presecurity-walkthroughs" style="display:none;">
+        <h2 style="color:#0f0;">Pre Security Walkthroughs</h2>
+        <div id="walkthrough-list" class="item-list"></div>
+      </section>
+
+      <!-- BUNU DIŞARI ALIYORUZ -->
+      <div id="walkthrough-detail" style="display:none;">
+        <h3 id="walkthrough-title" style="color:#0f0;"></h3>
+        <img id="walkthrough-img" src="" alt="" style="width:100%;max-width:600px;border-radius:6px;margin-bottom:10px;">
+        <p id="walkthrough-content" style="color:#fff;"></p>
+      </div>
     </div>
   </div>
 
@@ -277,6 +296,7 @@
       {text: "Certificate of Completion Advent of Cyber 2023", url:"https://tryhackme.com/certificate/THM-68FPQDIIYC", color:"#0F0"},
       {text: "KOSGEB Entrepreneurship Training Certificate", color:"#0F0"},
       {text: "Web Fundamentals Certificate", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-E5S2DHNRGR.pdf", color:"#0F0"},
+      {text: "BTK Academy Basic Networking Technologies"},
       {text: "Pre Security Certificate", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-UXOHJJQDH7.pdf", color:"#0F0"},
       {text: "Complete Beginner Certificate", url:"https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-OXQRBVCGGF.pdf", color:"#0F0"},
       {text: "UDEMY C# Learning Certificate", url:"https://udemy-certificate.s3.amazonaws.com/pdf/UC-2965873f-f7bf-4a46-8984-774dcf27da90.pdf", color:"#0F0"},
@@ -374,6 +394,345 @@
         content.classList.remove("menu-open");
       }
     }
+
+    // Walkthrough verileri
+    const walkthroughs = [
+      {
+        title: "Introduction to Cyber Security",
+        img: "swords.png",
+        content: "Buraya çözüm yazısı gelecek."
+      },
+      {
+        title: "Network Fundamentals",
+        img: "https://placehold.co/300x150?text=Network+Fundamentals",
+        content: "Buraya Network Fundamentals walkthrough'u gelecek."
+      },
+      {
+        title: "How The Web Works",
+        img: "https://placehold.co/300x150?text=How+The+Web+Works",
+        content: "Buraya How The Web Works walkthrough'u gelecek."
+      },
+      {
+        title: "Linux Fundamentals",
+        img: "https://placehold.co/300x150?text=Linux+Fundamentals",
+        content: "Buraya Linux Fundamentals walkthrough'u gelecek."
+      },
+      {
+        title: "Windows Fundamentals",
+        img: "https://placehold.co/300x150?text=Windows+Fundamentals",
+        content: "Buraya Windows Fundamentals walkthrough'u gelecek."
+      }
+    ];
+
+    // Pre Security'ye tıklanınca walkthrough kutuları göster
+    function showPreSecurityWalkthroughs() {
+      document.getElementById("certs").style.display = "none";
+      document.getElementById("skills").style.display = "none";
+      document.getElementById("projects").style.display = "none";
+      document.getElementById("presecurity-walkthroughs").style.display = "block";
+      document.getElementById("walkthrough-detail").style.display = "none";
+
+      const list = document.getElementById("walkthrough-list");
+      list.innerHTML = "";
+
+      const walkthroughNames = [
+        "Introduction to Cyber Security",
+        "Network Fundamentals",
+        "How The Web Works",
+        "Linux Fundamentals",
+        "Windows Fundamentals"
+      ];
+
+      for (let i = 0; i < walkthroughNames.length; i++) {
+        const div = document.createElement("div");
+        div.className = "item";
+        div.style.height = "120px";
+        div.style.display = "flex";
+        div.style.alignItems = "center";
+        div.style.justifyContent = "flex-start";
+        div.style.fontSize = "20px";
+        div.style.cursor = "pointer";
+        div.style.position = "relative";
+
+        // Introduction to Cyber Security için özel davranış
+        if (i === 0) {
+          div.style.height = "auto";
+          div.onclick = null;
+
+          // LOGO EKLE
+          const logo = document.createElement("img");
+          logo.src = "Pre Security/Introduction to Cyber Security/intro-to-security.png";
+          logo.alt = "Intro to Security Logo";
+          logo.style.width = "60px";
+          logo.style.height = "60px";
+          logo.style.objectFit = "contain";
+          logo.style.marginRight = "18px";
+          div.appendChild(logo);
+
+          // Sadece metin
+          const span = document.createElement("span");
+          span.textContent = walkthroughNames[i];
+          span.style.flex = "1";
+          span.style.cursor = "pointer";
+          div.appendChild(span);
+
+          // Açılır menü için container
+          const subList = document.createElement("div");
+          subList.style.display = "none";
+          subList.style.flexDirection = "column";
+          subList.style.gap = "12px";
+          subList.style.marginTop = "16px";
+          subList.style.marginLeft = "40px"; // sağda gözüksün
+          // sub kutucuklar için
+
+          // 3 alt walkthrough
+          const subWalkthroughs = [
+            {
+              title: "Offensive Security Intro",
+              logo: "Pre Security/Introduction to Cyber Security/Offensive Security Intro/swords.png",
+              content: `
+<div style="text-align:center;">
+  <h1>Offensive Security Intro</h1>
+  <p>You can enter the walkthrough from here!!<br>
+    <a href="https://tryhackme.com/room/offensivesecurityintro" target="_blank" style="color:#0f0;">tryhackme.com</a>
+  </p>
+
+  <div style="display:flex;justify-content:center;">
+    <img src="tryhackme.badge.png" alt="Offensive Security" style="max-width:180px; width:100%; border-radius:8px; margin:18px 0 24px 0; display:block;">
+  </div>
+
+  <h3>TASK 1 | What is Offensive Security?</h3>
+  <p><b>What is Offensive Security?</b><br>
+  “To outsmart a hacker, you need to think like one.”<br>
+  Offensive Security is the practice of legally and ethically simulating hacking<br>activities to discover vulnerabilities in systems. It involves breaking into systems,<br>exploiting bugs, and finding loopholes — all with the goal of strengthening security.</p>
+
+  <b>--Answer the question below--</b>
+  <ul style="display:inline-block;text-align:left;">
+    <li><b>Question 1:</b> Which of the following options better represents the process<br>where you simulate a hacker’s actions to find vulnerabilities in a system?</li>
+    <li>&gt; Offensive Security</li>
+    <li>&gt; Defensive Security</li>
+    <li><b>Answer:</b> Offensive Security</li>
+  </ul>
+
+  <h3>TASK 2 | Hacking your first machine</h3>
+  <p>In this room, we have prepared a fake bank application called Fakebank that<br>you can safely hack.To start this machine, click on the Start Machine button below.<br><br><b>Start Machine</b></p>
+
+  <img src="Pre Security/Introduction to Cyber Security/Offensive Security Intro/image1.png" style="max-width:50%;border-radius:8px;margin:18px 0;display:block;margin-left:auto;margin-right:auto;">
+  <img src="Pre Security/Introduction to Cyber Security/Offensive Security Intro/image2.png" style="max-width:40%;border-radius:8px;margin:18px 0;display:block;margin-left:auto;margin-right:auto;">
+
+  <p><b>Step 1: Open the Terminal</b><br>
+  The terminal (command line) lets users interact with the system without a GUI.<br>Open it by clicking the Terminal icon on the right side of the screen.</p>
+
+  <img src="Pre Security/Introduction to Cyber Security/Offensive Security Intro/image3.png" style="max-width:10%;border-radius:3px;margin:10px 0;display:block;margin-left:auto;margin-right:auto;">
+
+  <p><b>Step 2: Use Gobuster to Find Hidden Pages</b><br>
+  Gobuster scans websites for hidden admin or sensitive pages that may be publicly<br>accessible due to misconfiguration or human error, potentially exposing critical<br>functions or data.</p>
+
+  <pre style="background:#222;color:#0f0;padding:10px;border-radius:6px;display:inline-block;text-align:left;">gobuster -u http://fakebank.thm -w wordlist.txt dir</pre>
+
+  <p>The command will run and show you an output similar to this:</p>
+
+  <img src="Pre Security/Introduction to Cyber Security/Offensive Security Intro/image4.png" alt="Gobuster Output" style="max-width:40%;border-radius:8px;margin:18px 0;display:block;margin-left:auto;margin-right:auto;">
+
+  <p>In the command above, <b>-u</b> is used to state the website we're scanning, <b>-w</b> takes<br>a list of words to iterate through to find hidden pages.</p>
+
+  <p>You should have found a secret bank transfer page that allows you to transfer<br>money between bank accounts (<b>/bank-transfer</b>). Type the hidden page into the<br>FakeBank website using the browser's address bar.</p>
+
+  <img src="Pre Security/Introduction to Cyber Security/Offensive Security Intro/image7.png" alt="Bank Transfer" style="max-width:80%;border-radius:6px;margin:15px 0;display:block;margin-left:auto;margin-right:auto;">
+
+  <p>An attacker with access to this page can steal money from any account. Ethical hackers<br>find such vulnerabilities (with permission) and report them to be fixed.<br>Your task: transfer $2000 from account 2276 to account 8881 and verify your updated balance.</p>
+
+  <img src="Pre Security/Introduction to Cyber Security/Offensive Security Intro/image5.png" alt="Transfer Success" style="max-width:40%;border-radius:8px;margin:18px 0;display:block;margin-left:auto;margin-right:auto;">
+
+  <b>--Answer the question below--</b>
+  <ul style="display:inline-block;text-align:left;">
+    <li><b>Question 2:</b> Above your account balance, you should now see a message indicating<br>the answer to this question. Can you find the answer you need?</li>
+    <li><b>Answer:</b> BANK-HACKED</li>
+  </ul>
+
+  <h3>TASK 3 | Careers in cyber security</h3>
+  <p><b>How can I start learning Cybersecurity?</b><br>
+  Becoming a hacker (security consultant) or defender (security analyst) starts by choosing<br>an area you like and practicing regularly. Using hands-on platforms like TryHackMe daily<br>helps build skills and knowledge for your first job.</p>
+
+  <p><b>Career Options in Offensive Security:</b></p>
+  <ul style="display:inline-block;text-align:left;">
+    <li>Penetration Tester: Finds security weaknesses in products.</li>
+    <li>Red Teamer: Simulates attacks to test defenses.</li>
+    <li>Security Engineer: Designs and manages security systems to prevent attacks.</li>
+  </ul>
+
+  <img src="Pre Security/Introduction to Cyber Security/Offensive Security Intro/image6.png" alt="Careers" style="max-width:50%;border-radius:8px;margin:18px 0;display:block;margin-left:auto;margin-right:auto;">
+
+  <p>Tryhackme | Offensive Security Intro !!! is done and dusted. I hope you liked the write-ups.<br>If you did, Please give a positive response and drop a follow :)</p>
+  <p>More walkthrough, room and CFT solutions are coming.</p>
+
+  <!-- Medium kutusu -->
+  <div style="border:1px solid #0f0; border-radius:8px; background:#111; padding:16px; margin-top:24px; display:flex; align-items:center; gap:18px;justify-content:center;">
+    <img class="icon" src="https://cdn-icons-png.flaticon.com/512/5968/5968906.png" alt="Medium Logo" style="width:20px;vertical-align:middle;margin-right:8px;" />
+      <a href="https://medium.com/@atakan.bitim/offensive-security-intro-tryhackme-f2cd352c9454" target="_blank" style="color:#0f0; font-size:18px; text-decoration:underline;">
+        Read on Medium: Tryhackme | Offensive Security Intro 
+      </a>
+      <div style="color:#aaa; font-size:14px; margin-top:4px;">
+        For more, you can read the full article on Medium.
+      </div>
+    </div>
+</div>
+`,
+    img: "Pre Security/Introduction to Cyber Security/Offensive Security Intro/swords.png"
+  },
+  {
+    title: "Defensive Security Intro",
+    logo: "Pre Security/Introduction to Cyber Security/Defensive Security Intro/image1.png",
+    content: `
+<div style="text-align:center;">
+  <h1>Defensive Security Intro</h1>
+  <p>You can enter the walkthrough from here!!<br>
+    <a href="https://tryhackme.com/room/defensivesecurityintro" target="_blank" style="color:#0f0;">tryhackme.com</a>
+  </p>
+
+  <img src="Pre Security/Introduction to Cyber Security/Defensive Security Intro/tryhackme.badge.png"
+     alt="Defensive Security"
+     style="max-width:180px; width:100%; border-radius:8px; margin:18px auto 24px auto; display:block;">
+
+  <h3>TASK 1 | What is Defensive Security?</h3>
+  <p><b>What is Defensive Security?</b><br>
+  Defensive Security involves protecting systems, networks, and programs from digital attacks.<br>It means implementing measures to defend against potential threats and vulnerabilities.</p>
+
+  <b>--Answer the question below--</b>
+  <ul style="display:inline-block;text-align:left;">
+    <li><b>Question 1:</b> Which of the following options better represents the process<br>where you protect systems against hacking attempts?</li>
+    <li>&gt; Offensive Security</li>
+    <li>&gt; Defensive Security</li>
+    <li><b>Answer:</b> Defensive Security</li>
+  </ul>
+
+  <h3>TASK 2 | Setting up a Firewall</h3>
+  <p>A firewall is a network security device that monitors and controls incoming and outgoing network traffic based on predetermined security rules.<br>Your task is to set up a basic firewall configuration.</p>
+
+  <h3>TASK 3 | Intrusion Detection Systems</h3>
+  <p>Intrusion Detection Systems (IDS) are devices or software applications that monitor networks or systems for malicious activity or policy violations.<br>Your task is to install and configure an IDS.</p>
+
+  <h3>TASK 4 | Security Policies and Procedures</h3>
+  <p>Security policies and procedures are the foundation of an organization's security framework.<br>Your task is to develop a basic security policy.</p>
+
+  <p>More detailed tasks and solutions are available in the full walkthrough.</p>
+
+  <!-- Medium kutusu -->
+  <div style="border:1px solid #0f0; border-radius:8px; background:#111; padding:16px; margin-top:24px; display:flex; align-items:center; gap:18px;justify-content:center;">
+    <img class="icon" src="https://cdn-icons-png.flaticon.com/512/5968/5968906.png" alt="Medium Logo" style="width:20px;vertical-align:middle;margin-right:8px;" />
+      <a href="https://medium.com/@atakan.bitim/defensive-security-intro-tryhackme-7a1f3e4a1f4b" target="_blank" style="color:#0f0; font-size:18px; text-decoration:underline;">
+        Read on Medium: Tryhackme | Defensive Security Intro 
+      </a>
+      <div style="color:#aaa; font-size:14px; margin-top:4px;">
+        For more, you can read the full article on Medium.
+      </div>
+    </div>
+</div>
+`,
+    img: "Pre Security/Introduction to Cyber Security/Defensive Security Intro/swords.png"
+  },
+  {
+    title: "Careers in Cyber Security",
+    logo: "Pre Security/Introduction to Cyber Security/Careers in Cyber/66704dd0e54a1f39bff7b1a1-1735572882649.png",
+    content: `
+<div style="text-align:center;">
+  <h1>Careers in Cyber Security</h1>
+  <p>Cyber security offers a wide range of career opportunities such as penetration tester, security analyst, SOC analyst, and more. Explore the possibilities and find your path!</p>
+  <img src="Pre Security/Introduction to Cyber Security/Careers in Cyber/66704dd0e54a1f39bff7b1a1-1735572882649.png"
+     alt="Careers in Cyber Security"
+     style="max-width:180px; width:100%; border-radius:8px; margin:18px auto 24px auto; display:block;">
+  <p>For more information, check out the full walkthrough or reach out on LinkedIn!</p>
+</div>
+`,
+    img: "Pre Security/Introduction to Cyber Security/Careers in Cyber/66704dd0e54a1f39bff7b1a1-1735572882649.png"
+  }
+];
+
+          subWalkthroughs.forEach((sw, idx) => {
+            const subDiv = document.createElement("div");
+            subDiv.className = "item";
+            subDiv.style.display = "flex";
+            subDiv.style.alignItems = "center";
+            subDiv.style.gap = "12px";
+            subDiv.style.cursor = "pointer";
+            subDiv.style.fontSize = "18px";
+            subDiv.style.padding = "8px 0";
+
+            // Eğer logo varsa ekle
+            if (sw.logo) {
+              const subLogo = document.createElement("img");
+              subLogo.src = sw.logo;
+              subLogo.alt = sw.title + " Logo";
+              subLogo.style.width = "36px";
+              subLogo.style.height = "36px";
+              subLogo.style.objectFit = "contain";
+              subLogo.style.marginRight = "10px";
+              subDiv.appendChild(subLogo);
+            }
+
+            const subSpan = document.createElement("span");
+            subSpan.textContent = sw.title;
+            subDiv.appendChild(subSpan);
+
+            subDiv.onclick = (e) => {
+              e.stopPropagation();
+              document.getElementById("presecurity-walkthroughs").style.display = "none";
+              document.getElementById("walkthrough-detail").style.display = "block";
+              document.getElementById("walkthrough-title").textContent = sw.title;
+              document.getElementById("walkthrough-img").src = sw.img || "";
+              document.getElementById("walkthrough-img").alt = sw.title;
+              document.getElementById("walkthrough-content").innerHTML = sw.content.replace(/\n/g, "<br>");
+            };
+
+            subList.appendChild(subDiv);
+          });
+
+          // Açılır/kapanır menü
+          span.onclick = function() {
+            subList.style.display = subList.style.display === "none" ? "flex" : "none";
+          };
+
+          div.appendChild(subList);
+        } else {
+          div.onclick = () => showWalkthroughDetail(i);
+
+          // Görsel ekle (ilk kutuda yok)
+          const img = document.createElement("img");
+          img.src = walkthroughs[i].img;
+          img.alt = walkthroughNames[i];
+          img.style.width = "60px";
+          img.style.height = "60px";
+          img.style.marginRight = "18px";
+          img.style.objectFit = "contain";
+          div.appendChild(img);
+
+          const span = document.createElement("span");
+          span.textContent = walkthroughNames[i];
+          div.appendChild(span);
+        }
+
+        list.appendChild(div);
+      }
+    }
+
+    // Walkthrough kutusuna tıklanınca detay göster
+    function showWalkthroughDetail(idx) {
+      const w = walkthroughs[idx];
+      document.getElementById("presecurity-walkthroughs").style.display = "none";
+      document.getElementById("walkthrough-detail").style.display = "block";
+      document.getElementById("walkthrough-title").textContent = w.title;
+      document.getElementById("walkthrough-img").src = w.img;
+      document.getElementById("walkthrough-img").alt = w.title;
+      document.getElementById("walkthrough-content").innerHTML = w.content.replace(/\n/g, "<br>");
+    }
+
+    function showMainSections() {
+      document.getElementById("certs").style.display = "block";
+      document.getElementById("skills").style.display = "block";
+      document.getElementById("projects").style.display = "block";
+      document.getElementById("presecurity-walkthroughs").style.display = "none";
+    }
+
   </script>
 </body>
 </html>
