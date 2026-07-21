@@ -1,0 +1,134 @@
+[
+  {
+    "title": "AI Security Certificate",
+    "provider": "TryHackMe",
+    "category": "tryhackme",
+    "url": "https://tryhackme.com/certificate/THM-VJMHNMX2TK"
+  },
+  {
+    "title": "Red Teaming Certificate",
+    "provider": "TryHackMe",
+    "category": "tryhackme",
+    "url": "https://tryhackme.com/certificate/THM-SVSNCDN1RL"
+  },
+  {
+    "title": "Offensive Pentesting Certificate",
+    "provider": "TryHackMe",
+    "category": "tryhackme",
+    "url": "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-LX9UCUAN8O.pdf"
+  },
+  {
+    "title": "CompTIA Pentest+ Certificate",
+    "provider": "TryHackMe",
+    "category": "tryhackme",
+    "url": "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-KEQERCGSWF.pdf"
+  },
+  {
+    "title": "Pre Security",
+    "provider": "TryHackMe",
+    "category": "tryhackme",
+    "url": "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-UXOHJJQDH7.pdf"
+  },
+  {
+    "title": "Cyber Security 101 Certificate",
+    "provider": "TryHackMe",
+    "category": "tryhackme",
+    "url": "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-I2Z87L3IA1.pdf"
+  },
+  {
+    "title": "Advent of Cyber 2022 Certificate",
+    "provider": "TryHackMe",
+    "category": "tryhackme",
+    "url": "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-USXNQHAXHL.pdf"
+  },
+  {
+    "title": "Advent of Cyber 2023 Certificate",
+    "provider": "TryHackMe",
+    "category": "tryhackme",
+    "url": "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-68FPQDIIYC.pdf"
+  },
+  {
+    "title": "Advent of Cyber 2024 Certificate",
+    "provider": "TryHackMe",
+    "category": "tryhackme",
+    "url": "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-OGKGDPLABI.pdf"
+  },
+  {
+    "title": "Advent of Cyber 2025 Certificate",
+    "provider": "TryHackMe",
+    "category": "tryhackme",
+    "url": "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-V1NWE5AYWR.pdf"
+  },
+  {
+    "title": "Complete Beginner Certificate",
+    "provider": "TryHackMe",
+    "category": "tryhackme",
+    "url": "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-OXQRBVCGGF.pdf"
+  },
+  {
+    "title": "Web Fundamentals",
+    "provider": "TryHackMe",
+    "category": "tryhackme",
+    "url": "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-E5S2DHNRGR.pdf"
+  },
+  {
+    "title": "Jr Penetration Tester",
+    "provider": "TryHackMe",
+    "category": "tryhackme",
+    "url": "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-KGZQNYSZOP.pdf"
+  },
+  {
+    "title": "Introduction to Cyber Security",
+    "provider": "TryHackMe",
+    "category": "tryhackme",
+    "url": "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-TBCL7VIXIH.pdf"
+  },
+  {
+    "title": "Ethical Hacking & Penetration Testing with Metasploit",
+    "provider": "Security Training",
+    "category": "security",
+    "url": "http://ude.my/UC-3a71926f-b09e-4b06-9104-7f431958b117"
+  },
+  {
+    "title": "Android Ethical Hacking: From Scratch to Advanced",
+    "provider": "Security Training",
+    "category": "security",
+    "url": "http://ud.my/UC-271a2a02-9f55-4fdb-a97a-c957aed00f2d"
+  },
+  {
+    "title": "Ethical Hacking: boot2root CTF",
+    "provider": "Security Training",
+    "category": "security",
+    "url": "http://ude.my/UC-440a427b-22e5-480d-b350-4b5906d2cd0d"
+  },
+  {
+    "title": "Ethical Hacking: NMAP in Depth",
+    "provider": "Security Training",
+    "category": "security",
+    "url": "http://ude.my/UC-c059d2be-2ccb-43ff-942b-59a6808802d6"
+  },
+  {
+    "title": "Certified Ethical Hacker (CEH)",
+    "provider": "Üçüncü Binyıl Akademi",
+    "category": "security",
+    "url": ""
+  },
+  {
+    "title": "C++ Object-Oriented Programming",
+    "provider": "Programming Training",
+    "category": "other",
+    "url": "http://ude.my/UC-6a4bb540-21ee-4c8b-9cd5-bc09271b6323"
+  },
+  {
+    "title": "Entrepreneurship Training",
+    "provider": "KOSGEB",
+    "category": "other",
+    "url": ""
+  },
+  {
+    "title": "Hygiene of Foodstuffs",
+    "provider": "Webapmaciba",
+    "category": "other",
+    "url": ""
+  }
+]
