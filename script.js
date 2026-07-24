@@ -8,11 +8,11 @@
 
   const profile = {
     username: "l1nux",
-    rank: 97,
+    rank: 96,
     badges: 95,
-    streak: 52,
+    streak: 55,
     points: 157258,
-    completedRooms: 1151,
+    completedRooms: 1154,
     level: 21,
     levelHex: "0x15",
     levelTitle: "GRANDMASTER",
