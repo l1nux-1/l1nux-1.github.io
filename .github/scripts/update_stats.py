@@ -14,7 +14,7 @@ from curl_cffi import requests
 USERNAME = "l1nux"
 API_URL = "https://tryhackme.com/api/v2/public-profile"
 STATS_PATH = Path(__file__).resolve().parents[2] / "data" / "stats.json"
-IMPERSONATIONS = ("chrome", "chrome131", "safari", "chrome120")
+IMPERSONATIONS = ("chrome",)
 LEVEL_TITLES = (
     "NEOPHYTE", "APPRENTICE", "PATHFINDER", "SEEKER", "VISIONARY",
     "VOYAGER", "ADEPT", "HACKER", "MAGE", "WIZARD", "MASTER", "GURU",
