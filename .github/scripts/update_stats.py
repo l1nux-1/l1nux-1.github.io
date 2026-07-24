@@ -66,15 +66,14 @@ def first_number(data: dict, keys: tuple[str, ...], fallback: int) -> int:
 
     return fallback
 
-
 def main() -> int:
     existing = json.loads(STATS_PATH.read_text(encoding="utf-8"))
 
     try:
         data = fetch_profile()
     except RuntimeError as exc:
-    print(f"::error::{exc}")
-    return 1
+        print(f"::error::{exc}")
+        return 1
 
     level = first_number(data, ("level",), existing.get("level", 21))
     level = max(1, min(level, len(LEVEL_TITLES)))
@@ -82,7 +81,9 @@ def main() -> int:
     updated = {
         "username": data.get("username", USERNAME),
         "rank": first_number(
-            data, ("rank",), existing.get("rank", 97)
+            data,
+            ("rank",),
+            existing.get("rank", 97),
         ),
         "badges": first_number(
             data,
@@ -94,11 +95,11 @@ def main() -> int:
             ("streak", "currentStreak", "streakDays", "dailyStreak"),
             existing.get("streak", 52),
         ),
-       "points": first_number(
-    data,
-    ("totalPoints", "points"),
-    existing.get("points", 157258),
-),
+        "points": first_number(
+            data,
+            ("totalPoints", "points"),
+            existing.get("points", 157258),
+        ),
         "completedRooms": first_number(
             data,
             ("completedRoomsNumber", "completedRooms", "rooms"),
@@ -118,12 +119,16 @@ def main() -> int:
         encoding="utf-8",
     )
 
-   print(
-    f"Updated {STATS_PATH}: rank #{updated['rank']}, "
-    f"{updated['points']} points, "
-    f"{updated['completedRooms']} rooms, "
-    f"{updated['badges']} badges"
-)
+    print(
+        f"Updated {STATS_PATH}: rank #{updated['rank']}, "
+        f"{updated['points']} points, "
+        f"{updated['completedRooms']} rooms, "
+        f"{updated['badges']} badges"
+    )
+
+    return 0
+
+   
 
     return 0
 
