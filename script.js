@@ -11,7 +11,7 @@
     rank: 97,
     badges: 95,
     streak: 52,
-    followers: 118,
+    points: 157258,
     completedRooms: 1151,
     level: 21,
     levelHex: "0x15",
