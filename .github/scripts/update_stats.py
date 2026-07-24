@@ -126,10 +126,7 @@ def main() -> int:
         f"{updated['badges']} badges"
     )
 
-    return 0
-
-   
-
+ 
     return 0
 
 
