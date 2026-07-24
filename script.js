@@ -30,17 +30,14 @@
     const level = Number(raw.level ?? profile.level);
     const safeLevel = Number.isFinite(level) && level > 0 ? level : profile.level;
     const apiStreak = raw.streak ?? raw.currentStreak ?? raw.streakDays ?? raw.dailyStreak;
-    const apiFollowers = raw.followersNumber ?? raw.followersCount ?? raw.followers_count ?? raw.followers;
-    const followers = Array.isArray(apiFollowers)
-      ? apiFollowers.length
-      : Number(apiFollowers ?? profile.followers);
+    const apiPoints = raw.totalPoints ?? raw.points;
 
     return {
       username: raw.username || profile.username,
       rank: Number(raw.rank ?? profile.rank),
       badges: Number(raw.badgesNumber ?? raw.badges ?? profile.badges),
       streak: Number(apiStreak ?? profile.streak),
-      followers: Number.isFinite(followers) ? followers : profile.followers,
+      points: Number(apiPoints ?? profile.points),
       completedRooms: Number(raw.completedRoomsNumber ?? raw.completedRooms ?? raw.rooms ?? profile.completedRooms),
       level: safeLevel,
       levelHex: raw.levelHex || `0x${safeLevel.toString(16).toUpperCase()}`,
@@ -54,7 +51,7 @@
     profile.rank = stats.rank;
     profile.badges = stats.badges;
     profile.streak = stats.streak;
-    profile.followers = stats.followers;
+    profile.points = stats.points;
     profile.completedRooms = stats.completedRooms;
     profile.level = stats.level;
     profile.levelHex = stats.levelHex;
@@ -63,7 +60,7 @@
     $("#rank-value").textContent = numberFormat.format(stats.rank);
     $("#badges-value").textContent = numberFormat.format(stats.badges);
     $("#streak-value").textContent = numberFormat.format(stats.streak);
-    $("#followers-value").textContent = stats.followers > 0 ? numberFormat.format(stats.followers) : "—";
+    $("#points-value").textContent = stats.points > 0 ? numberFormat.format(stats.points) : "—";
     $("#rooms-value").textContent = numberFormat.format(stats.completedRooms);
     const percentile = (stats.rank / estimatedTryHackMeUsers) * 100;
     $("#rank-percentile").textContent = `TOP ${percentile.toFixed(4)}%`;
