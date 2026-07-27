@@ -1,30 +1,112 @@
 name: Update TryHackMe stats
 
 on:
-  schedule:
-    - cron: "17 4 * * *"
   workflow_dispatch:
+    inputs:
+      rank:
+        description: "Worldwide rank"
+        required: true
+        default: "92"
+        type: string
+      badges:
+        description: "Badges earned"
+        required: true
+        default: "96"
+        type: string
+      streak:
+        description: "Current streak"
+        required: true
+        default: "58"
+        type: string
+      points:
+        description: "Total points"
+        required: true
+        default: "157258"
+        type: string
+      completed_rooms:
+        description: "Completed rooms"
+        required: true
+        default: "1170"
+        type: string
+      level:
+        description: "TryHackMe level number"
+        required: true
+        default: "21"
+        type: string
+      level_title:
+        description: "Level title"
+        required: true
+        default: "GRANDMASTER"
+        type: string
 
 permissions:
   contents: write
 
+concurrency:
+  group: update-tryhackme-stats
+  cancel-in-progress: false
+
 jobs:
   update-stats:
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+      - name: Update stats file
+        env:
+          THM_RANK: ${{ inputs.rank }}
+          THM_BADGES: ${{ inputs.badges }}
+          THM_STREAK: ${{ inputs.streak }}
+          THM_POINTS: ${{ inputs.points }}
+          THM_COMPLETED_ROOMS: ${{ inputs.completed_rooms }}
+          THM_LEVEL: ${{ inputs.level }}
+          THM_LEVEL_TITLE: ${{ inputs.level_title }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
 
-      - name: Install browser-grade HTTP client
-        run: python -m pip install --disable-pip-version-check curl-cffi
+          stats_path = Path("data/stats.json")
+          stats = json.loads(stats_path.read_text(encoding="utf-8"))
 
-      - name: Refresh profile data
-        run: python .github/scripts/update_stats.py
+          def non_negative_int(name: str) -> int:
+              raw = os.environ[name].strip()
+              value = int(raw)
+              if value < 0:
+                  raise ValueError(f"{name} cannot be negative")
+              return value
+
+          level = non_negative_int("THM_LEVEL")
+          if level < 1:
+              raise ValueError("THM_LEVEL must be at least 1")
+
+          stats.update({
+              "username": "l1nux",
+              "rank": non_negative_int("THM_RANK"),
+              "badges": non_negative_int("THM_BADGES"),
+              "streak": non_negative_int("THM_STREAK"),
+              "points": non_negative_int("THM_POINTS"),
+              "completedRooms": non_negative_int("THM_COMPLETED_ROOMS"),
+              "level": level,
+              "levelHex": f"0x{level:X}",
+              "levelTitle": os.environ["THM_LEVEL_TITLE"].strip().upper(),
+              "updatedAt": datetime.now(timezone.utc)
+              .isoformat()
+              .replace("+00:00", "Z"),
+              "source": "manual-github-action",
+          })
+
+          stats_path.write_text(
+              json.dumps(stats, indent=2) + "\n",
+              encoding="utf-8",
+          )
+
+          print(json.dumps(stats, indent=2))
+          PY
 
       - name: Commit updated stats
         run: |
@@ -32,8 +114,9 @@ jobs:
             echo "Stats are already current."
             exit 0
           fi
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/stats.json
-          git commit -m "chore: refresh TryHackMe stats"
+          git commit -m "chore: update TryHackMe stats"
           git push
