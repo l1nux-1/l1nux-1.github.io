@@ -11,7 +11,7 @@ from pathlib import Path
 from curl_cffi import requests
 
 
-USERNAME = "l1nux"
+USERNAME = "Qaevix"
 API_URL = "https://tryhackme.com/api/v2/public-profile"
 STATS_PATH = Path(__file__).resolve().parents[2] / "data" / "stats.json"
 IMPERSONATIONS = ("chrome",)
