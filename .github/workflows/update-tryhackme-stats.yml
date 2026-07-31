@@ -6,27 +6,27 @@ on:
       rank:
         description: "Worldwide rank"
         required: true
-        default: "92"
+        default: "87"
         type: string
       badges:
         description: "Badges earned"
         required: true
-        default: "96"
+        default: "97"
         type: string
       streak:
         description: "Current streak"
         required: true
-        default: "58"
+        default: "62"
         type: string
       points:
         description: "Total points"
         required: true
-        default: "157258"
+        default: "160346"
         type: string
       completed_rooms:
         description: "Completed rooms"
         required: true
-        default: "1170"
+        default: "1198"
         type: string
       level:
         description: "TryHackMe level number"
@@ -85,7 +85,7 @@ jobs:
               raise ValueError("THM_LEVEL must be at least 1")
 
           stats.update({
-              "username": "l1nux",
+              "username": "Qaevix",
               "rank": non_negative_int("THM_RANK"),
               "badges": non_negative_int("THM_BADGES"),
               "streak": non_negative_int("THM_STREAK"),
