@@ -12,7 +12,7 @@
     badges: 97,
     streak: 61,
     points: 160258,
-    completedRooms: 1197,
+    completedRooms: 1198,
     level: 21,
     levelHex: "0x15",
     levelTitle: "GRANDMASTER",
@@ -101,7 +101,7 @@
     }
 
     try {
-      const live = await fetchJson("https://tryhackme.com/api/v2/public-profile?username=l1nux", 9000);
+      const live = await fetchJson("https://tryhackme.com/api/v2/public-profile?username=Qaevixw", 9000);
       if (live?.status !== "success" || !live?.data) throw new Error("Unexpected TryHackMe response");
       renderStats(normalizeStats(live, "live"));
       syncState.innerHTML = "<i></i> Live from TryHackMe";
@@ -308,7 +308,7 @@
     const files = {
       "about.txt": "Dark Web OSINT specialist focused on cyber security and digital intelligence.",
       "skills.txt": "Cyber Security · OSINT · Scripting · IDS/IPS · NIST · IAM · IR & DFIR · DevOps",
-      "contact.txt": "GitHub: github.com/l1nux-1\nDiscord: atak1n",
+      "contact.txt": "GitHub: github.com/Qaevix\nDiscord: atak1n",
       ".hint": "The dark side has cookies. Try: order66",
     };
 
@@ -370,13 +370,13 @@
           line("exit      close terminal");
           break;
         case "whoami":
-          line("l1nux");
+          line("Qaevix");
           break;
         case "id":
-          line("uid=1337(l1nux) gid=1337(osint) groups=cyber,dfir,devops");
+          line("uid=1337(Qaevix) gid=1337(osint) groups=cyber,dfir,devops");
           break;
         case "pwd":
-          line("/home/l1nux/portfolio");
+          line("/home/Qaevix/portfolio");
           break;
         case "ls":
           line(argument === "-a" ? Object.keys(files).join("  ") : Object.keys(files).filter((name) => !name.startsWith(".")).join("  "));
@@ -390,9 +390,9 @@
           line(files["skills.txt"]);
           break;
         case "social":
-          line("TryHackMe  https://tryhackme.com/p/l1nux");
-          line("GitHub     https://github.com/l1nux-1");
-          line("Write-ups  https://github.com/l1nux-1/TryHackMe");
+          line("TryHackMe  https://tryhackme.com/p/Qaevix");
+          line("GitHub     https://github.com/Qaevix");
+          line("Write-ups  https://github.com/Qaevix/TryHackMe");
           line("Discord    atak1n");
           break;
         case "stats":
@@ -407,7 +407,7 @@
           line(`${certificates.length || 22} certificates loaded. Scroll to the credentials section to explore.`);
           break;
         case "neofetch":
-          line("          .--.          l1nux@portfolio", "accent");
+          line("          .--.          Qaevix@portfolio", "accent");
           line("      .-(      ).       ----------------");
           line("     (___.__)__)        Role: Dark Web OSINT");
           line(`      /  /\\  \\         Level: ${profile.levelHex} ${profile.levelTitle}`);
