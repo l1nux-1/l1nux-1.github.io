@@ -392,7 +392,7 @@
         case "social":
           line("TryHackMe  https://tryhackme.com/p/Qaevix");
           line("GitHub     https://github.com/Qaevix");
-          line("Write-ups  https://github.com/Qaevix/TryHackMe");
+          line("Write-ups  https://github.com/Qaevix/TryHackMe-Labs");
           line("Discord    atak1n");
           break;
         case "stats":
