@@ -101,7 +101,7 @@
     }
 
     try {
-      const live = await fetchJson("https://tryhackme.com/api/v2/public-profile?username=Qaevixw", 9000);
+      const live = await fetchJson("https://tryhackme.com/api/v2/public-profile?username=Qaevix", 9000);
       if (live?.status !== "success" || !live?.data) throw new Error("Unexpected TryHackMe response");
       renderStats(normalizeStats(live, "live"));
       syncState.innerHTML = "<i></i> Live from TryHackMe";
@@ -431,7 +431,7 @@
           closeTerminal();
           break;
         case "sudo":
-          line("l1nux is not in the sudoers file. This incident will be reported.", "error");
+          line("Qaevix is not in the sudoers file. This incident will be reported.", "error");
           break;
         case "order66":
           line("Protocol acknowledged. Profile GIF clearance granted.", "green");
